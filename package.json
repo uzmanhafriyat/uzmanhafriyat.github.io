@@ -1,0 +1,39 @@
+{
+  "name": "uzman-hafriyat",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "image": "node image.js",
+    "dev": "vite",
+    "build": "npm run image && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@picocss/pico": "^2.1.1",
+    "animejs": "^4.2.2",
+    "concurrently": "^9.1.2",
+    "countup.js": "^2.9.0",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-class-names": "^8.6.0",
+    "embla-carousel-fade": "^8.6.0",
+    "embla-carousel-wheel-gestures": "^8.1.0",
+    "scrollreveal": "^4.0.9",
+    "typed.js": "^2.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "autoprefixer": "^10.4.16",
+    "fast-glob": "^3.3.3",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-webp": "^8.0.0",
+    "postcss": "^8.4.31",
+    "sass": "^1.69.5",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.3.5",
+    "vite": "^5.0.0",
+    "vite-plugin-imagemin": "^0.6.1"
+  }
+}

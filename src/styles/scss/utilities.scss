@@ -1,0 +1,188 @@
+@use "sass:math";
+/* Layout */
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-center { align-items: center; }
+
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.gap-2 { gap: .5rem; }
+.gap-3 { gap: 1rem; }
+
+/* Spacing */
+.m-0 { margin: 0; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.ml-0 { margin-left: 0; }
+.mr-0 { margin-right: 0; }
+
+.mt-1 { margin-top: .5rem; }
+.mb-1 { margin-bottom: .5rem; }
+.mr-1 { margin-right: .5rem; }
+.ml-1 { margin-left: .5rem; }
+
+.mt-2 { margin-top: 1rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mr-2 { margin-right: 1rem; }
+.ml-2 { margin-left: 1rem; }
+
+.mx-0 { margin-left: 0; margin-right: 0; }
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.mx-1 { margin-left: .5rem; margin-right: .5rem; }
+.my-1 { margin-top: .5rem; margin-bottom: .5rem; }
+.mx-2 { margin-left: 1rem; margin-right: 1rem; }
+.my-2 { margin-top: 1rem; margin-bottom: 1rem; }
+.mx-3 { margin-left: 1.5rem; margin-right: 1.5rem; }
+.my-3 { margin-top: 1.5rem; margin-bottom:  1.5rem; }
+
+.px-0 { padding-left: 0; padding-right: 0; }
+.py-0 { padding-top: 0; padding-bottom: 0; }
+
+.px-1 { padding-left: .5rem; padding-right: .5rem; }
+.py-1 { padding-top: .5rem; padding-bottom: .5rem; }
+
+.px-2 { padding-left: 1rem; padding-right: 1rem; }
+.py-2 { padding-top: 1rem; padding-bottom: 1rem; }
+
+.px-3 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.py-3 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+.pl-0 { padding-left: 0; }
+.pr-0 { padding-right: 0; }
+
+.pl-1 { padding-left: .5rem; }
+.pr-1 { padding-right: .5rem; }
+
+.pl-2 { padding-left: 1rem; }
+.pr-2 { padding-right: 1rem; }
+
+.pl-3 { padding-left: 1.5rem; }
+.pr-3 { padding-right: 1.5rem; }
+
+.pl-4 { padding-left: 1.75rem; }
+.pr-4 { padding-right: 1.75rem; }
+
+.pl-5 { padding-left: 2rem; }
+.pr-5 { padding-right: 2rem; }
+
+/* Width */
+.w-25 { width: 25%; }
+.w-50 { width: 50%; }
+.w-75 { width: 75%; }
+.w-100 { width: 100%; }
+
+/* Height */
+.h-25 { height: 25%; }
+.h-50 { height: 50%; }
+.h-75 { height: 75%; }
+.h-100 { height: 100%; }
+
+/* Text */
+.text-center { text-align: center; }
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+.font-bold { font-weight: bold; }
+
+.fs { font-size: 1rem; }
+.fs-sm { font-size: 0.875rem; }
+.fs-lg { font-size: 1.25rem; }
+.fs-xl { font-size: 1.5rem; }
+
+.fw-300 { font-weight: 300; }
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+.fw-900 { font-weight: 900; }
+
+.text-decoration-none { text-decoration: none; }
+
+$wa-color: #28d366;
+.text-wa { color: $wa-color; }
+.bg-wa { background-color: $wa-color; }
+
+$gutter: 0.5rem;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: -$gutter;
+}
+
+[class^="col"] {
+  padding-inline: $gutter;
+  width: 100%;
+}
+
+@mixin col($percent) {
+  flex: 0 0 $percent;
+  max-width: $percent;
+}
+
+@mixin offset($percent) {
+  margin-left: $percent;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    @include col(math.div(100%, 12) * $i);
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through 12 {
+      .col-#{$name}-#{$i} {
+        @include col(math.div(100%, 12) * $i);
+      }
+    }
+  }
+}
+
+@for $i from 1 through 11 {
+  .offset-#{$i} {
+    @include offset(math.div(100%, 12) * $i);
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through 11 {
+      .offset-#{$name}-#{$i} {
+        @include offset(math.div(100%, 12) * $i);
+      }
+    }
+  }
+}
+
+.col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    .col-#{$name}-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+  }
+}
