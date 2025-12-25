@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "npm run image && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && git add dist -f && git commit -m 'Deploy update' && git subtree push --prefix dist origin main"
+    "deploy": "npm run build && gh-pages -d dist -b main -c uzmanhafriyat.com"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
@@ -27,6 +27,7 @@
     "@vitejs/plugin-vue": "^5.2.4",
     "autoprefixer": "^10.4.16",
     "fast-glob": "^3.3.3",
+    "gh-pages": "^6.3.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
     "imagemin-webp": "^8.0.0",
