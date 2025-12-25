@@ -693,6 +693,10 @@ main {
             }
         }
     }
+
+    .services-section {
+        position: relative;
+    }
 }
 
 section.about-us {
@@ -1091,11 +1095,13 @@ dialog {
 }
 
 .video-modal {
+    background: transparent;
     padding: 0;
     border: none;
     max-width: 800px;
     width: 90%;
     article {
+        width: auto;
         margin: 0;
         padding: 0;
         overflow: hidden;

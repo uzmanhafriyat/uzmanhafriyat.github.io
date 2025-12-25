@@ -35,6 +35,7 @@ async function run() {
           fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
           await sharp(file)
+            .rotate()
             .webp({
               quality: 95,
               effort: 6,
