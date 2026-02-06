@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default " tr" }}" data-theme="light">
+
+<head>
+    {{ partial "components/head.html" . }}
+</head>
+
+<body class="{{ if .IsHome }}home-page{{ else }}sub-page{{ end }}">
+
+    {{ partial "components/header.html" . }}
+
+    {{ block "content" . }}{{ end }}
+
+    {{ partial "components/footer.html" . }}
+
+    {{ $js := resources.Match "js/*.js" | resources.Concat "main2.js" | fingerprint }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+</body>

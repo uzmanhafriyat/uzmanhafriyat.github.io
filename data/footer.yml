@@ -1,0 +1,36 @@
+footer_text: Uzman Hafriyat; Altyapı, kanal açma, temel kazısı ve kırım yıkım
+  işlerinizde profesyonel çözüm. 1CX ve 4 tonluk makinelerimizle dar alanlarda
+  yüksek performans. Projelerimizi ve videolarımızı inceleyin.
+services_column:
+  - name: Temel Kazısı İşleri
+    link: /hizmet/temel-düzenlemesi-ve-hafriyat/
+  - name: Altyapı ve Kanalizasyon
+    link: /hizmet/altyapi-calismasi
+  - name: Bina Yıkımı ve Söküm
+    link: /hizmet/nakliyat-ve-moloz-atimi
+  - name: Saha ve Zemin Düzenleme
+    link: /hizmet/zemin-duzenlemesi
+  - name: Dolgu ve Tesviye
+    link: /hizmet/dolgu-ve-tesviye
+  - name: Kanalizasyon Çalışması
+    link: /hizmet/kanalizasyon-calismasi
+machines_column:
+  - name: Kiralık 1CX Kepçe
+    link: #
+  - name: 4 Tonluk Ekskavatör
+    link: #
+  - name: Dar Alan Hafriyat
+    link: /hizmet/temel-duzenlemesi-ve-hafriyat
+  - name: Beton ve Şap Kırımı
+    link: /hizmet/yikim-ve-kirim-isleri
+  - name: Drenaj Sistemleri
+    link: /hizmet/direnaj-calismasi
+  - name: Dükkan Kırım ve Tadilatı
+    link: /hizmet/yikim-ve-kirim-isleri
+quick_links_column:
+  - name: Ankara Hafriyat
+    link: /
+  - name: Moloz Atımı ve Nakliye
+    link: /hizmet/nakliyat-ve-moloz-atimi
+  - name: Çevre Düzenleme
+    link: /hizmet/temel-duzenlemesi-ve-hafriyat

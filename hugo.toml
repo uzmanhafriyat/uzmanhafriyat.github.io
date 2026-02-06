@@ -1,0 +1,33 @@
+baseURL = 'https://uzmanhafriyat.com/'
+title = 'Uzman Hafriyat'
+
+defaultContentLanguage = 'tr'
+enableRobotsTXT = true
+
+[languages]
+  [languages.tr]
+    languageName = 'Türkçe'
+    contentDir = 'content' # Türkçe içerikler buraya
+    weight = 1
+
+[permalinks]
+  hizmetler = '/hizmet/:slug/'
+
+[taxonomies]
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 1.0
+
+[params]
+  author = 'Uzman Hafriyat'
+  description = 'Uzman Hafriyat, inşaat ve hafriyat sektöründe lider bir firmadır. Profesyonel hizmetlerimizle projelerinizi güvenle tamamlıyoruz.'
+  keywords = ['hafriyat', 'inşaat', 'uzman hafriyat', 'toprak taşıma', 'altyapı hizmetleri']
+  googleAnalyticsID = 'G-2GB1D5HTPD'  # Google Analytics ID
+  facebookPage = 'https://www.facebook.com/uzmanhafriyat'
+  instagramPage = 'https://www.instagram.com/uzmanhafriyat'
+  linkedinPage = 'https://www.linkedin.com/company/uzmanhafriyat'
+  twitterPage = 'https://twitter.com/uzmanhafriyat'
+  address = 'Ankara, Türkiye'
+     

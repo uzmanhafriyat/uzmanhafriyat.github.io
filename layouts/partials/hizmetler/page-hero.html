@@ -1,0 +1,15 @@
+<section class="hero-banner">
+    <div class="parallax-background">
+        <picture>
+            <source media="(max-width: 768px)" srcset="{{ .Params.image | relURL }}">
+            <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="eager" fetchpriority="high">
+        </picture>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+            <div class="section-heading">
+                <h1 class="section-subtitle">Ankara Hafriyat ve Altyapı Hizmetleri</h1>
+                <h2 class="section-title">Uzman Hafriyat - <span>{{ .Title }}</span></h2>
+            </div>
+        </div>
+    </div>
+</section>

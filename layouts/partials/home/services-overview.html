@@ -1,0 +1,47 @@
+<section class="services-section mt-5 py-3" id="services-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2 class="section-subtitle text-center">Ankara Profesyonel Hafriyat Çözümleri</h2>
+            <div class="content text-center">
+                <p class="font-secondary">Ankara genelinde temel kazısından altyapı çalışmalarına, güvenli bina
+                    yıkımından kırım işlerine kadar tüm projelerinizde profesyonel çözüm ortağınızız.</p>
+            </div>
+        </div>
+
+        <div class="services-slider">
+            <div class="services-viewport" id="slider-embla">
+                <div class="services-container embla__container">
+
+                    {{ range where site.RegularPages "Section" "hizmetler" }}
+                    <div class="service-slide">
+                        <div class="service-card">
+                            <div class="service-poster">
+                                <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                            </div>
+
+                            <div class="service-content">
+                                <h3>{{ .Title }}</h3>
+                                <p>{{ .Params.summary }}</p>
+
+                                <a href="{{ .RelPermalink }}" class="service-link">
+                                    <span>Hizmeti İncele</span>
+                                    <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+
+                </div>
+                <div class="slider-controls">
+                    <button class="prev-btn">
+                        <i class="icon-chevron-left"></i>
+                    </button>
+                    <button class="next-btn">
+                        <i class="icon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

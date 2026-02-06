@@ -1,0 +1,52 @@
+<section class="about-us" id="about-us-section">
+    <div class="container">
+        <div class="grid">
+            <div class="about-us-image">
+                <div class="inner scroll-reveal-bottom">
+                    <div class="image-box visible">
+                        {{ if .Params.about_image }}
+                            <img src="{{ .Params.about_image | relURL }}" class="" loading="lazy" alt="{{ .Params.about_title }}"
+                            width="600" height="400">
+                        {{ end }}
+                    </div>
+                    {{ if .Params.about_video }}
+                    <div class="about-three__img-video wow zoomIn animated">
+                        <a class="video-popup" data-target="videoModal" aria-label="Video Aç">
+                            <div class="about-three__img-video-icon">
+                                <i class="icon-play"></i>
+                                <i class="ripple"></i>
+                            </div>
+                        </a>
+
+                        <dialog id="videoModal" class="modal video-modal">
+                            <article>
+                                <button aria-label="Close" class="close" data-close></button>
+                                {{ .Params.about_video.code | safeHTML }}
+                            </article>
+                        </dialog>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="px-3">
+                <div class="section-heading section-tagline">
+                    <h2 class="section-title"> {{ .Params.about_title }} </h2>
+                    <span class="right"></span>
+                </div>
+                <h3 class="section-title">
+                    {{ .Params.about_title }}
+                </h3>
+
+                <div class="content">
+                    {{ .Params.about_content | markdownify }}
+                </div>
+
+                {{ if .Params.hero_buttons_block.button_show }}
+                <a href="{{ .Params.hero_buttons_block.button_link }}" class="btn-primary outline rounded-full width-auto">
+                    {{ .Params.hero_buttons_block.button_text }}
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>

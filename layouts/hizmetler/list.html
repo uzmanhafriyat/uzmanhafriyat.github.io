@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="services-list">
+  <h1>Hizmetlerimiz</h1>
+
+  <div class="services-grid">
+    {{ range .Pages }}
+      <article class="service-card">
+        <a href="{{ .RelPermalink }}">
+          {{ with .Params.image }}
+            <img src="{{ . }}" alt="{{ $.Title }}">
+          {{ end }}
+          <h2>{{ .Title }}</h2>
+          <p>{{ .Params.summary }}</p>
+        </a>
+      </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

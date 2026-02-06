@@ -1,0 +1,55 @@
+{{ define "content" }}
+<main>
+    {{ partial "hizmetler/page-hero.html" . }}
+
+    <section class="single-service-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 pr-lg-5 mb-4">
+                    
+                    {{ if .Params.gallery_slider }}
+                    <div class="slider main-slider">
+                        <div class="slider-viewport slider-embla">
+                            <div class="slider-container embla__container">
+                                
+                                {{ range .Params.gallery_slider }}
+                                    <div class="slider-item">
+                                        <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+                                    </div>
+                                {{ end }}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider thumb-slider mt-3">
+                        <div class="slider-viewport slider-embla">
+                            <div class="slider-container embla__container">
+                                {{ range .Params.gallery_slider }}
+                                    <div class="slider-item">
+                                        <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ else if .Params.image }}
+                    <div class="single-image">
+                        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="img-fluid">
+                    </div>
+                    {{ end }}
+
+                </div>
+
+                <div class="col-lg-7 pl-lg-5">
+                    <h1>{{ .Title }}</h1>
+                    <div class="content">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{{ end }}

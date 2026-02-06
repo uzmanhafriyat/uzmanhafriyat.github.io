@@ -1,0 +1,147 @@
+<footer>
+    <section class="mobile-tabs">
+        <div class="container">
+            <div class="tabs-wrapper">
+                <div class="tab-item">
+                    <a id="scroll-to-top" href="{{ .Site.BaseURL }}">
+                        <i class="icon-home"></i>
+                        <span class="item-text">ANA SAYFA</span>
+                    </a>
+                </div>
+
+                <div class="tab-item center-item">
+                    <a href="https://wa.me/{{ site.Data.contact.whatsapp.link }}" target="_blank">
+                        <div class="whatsapp-icon-box">
+                            <i class="icon-whatsapp1"></i>
+                        </div>
+                        <span class="item-text">TEKLİF AL</span>
+                    </a>
+                </div>
+
+                <div class="tab-item">
+                    <a href="#services-section">
+                        <i class="icon-layers"></i>
+                        <span class="item-text">HİZMETLERİMİZ</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="footer-row">
+            <div class="grid gap-3">
+                <div class="footer-column pr-5">
+                    <ul class="social-links">
+
+                        {{ with site.Data.contact.social.facebook }}
+                        <li>
+                            <a href="{{ . }}" target="_blank">
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                        {{ with site.Data.contact.social.instagram }}
+                        <li>
+                            <a href="{{ . }}" target="_blank">
+                                <i class="icon-instagram"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                        {{ with site.Data.contact.social.youtube }}
+                        <li>
+                            <a href="{{ . }}" target="_blank">
+                                <i class="icon-youtube"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                        {{ with site.Data.contact.social.linkedin }}
+                        <li>
+                            <a href="{{ . }}" target="_blank">
+                                <i class="icon-linkedin"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                        {{ with site.Data.contact.social.x_twitter }}
+                        <li>
+                            <a href="{{ . }}" target="_blank">
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                        {{ with site.Data.contact.whatsapp }}
+                        <li>
+                            <a href="https://wa.me/{{ .link }}" target="_blank">
+                                <i class="icon-whatsapp1"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                        {{ range site.Data.contact.phones }}
+                        <li>
+                            <a href="tel:{{ .number }}">
+                                <i class="icon-phone-call"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+
+                    </ul>
+                    <hr>
+                    <p>{{ site.Data.footer.footer_text }}</p>
+                </div>
+
+                <div class="footer-column">
+                    <h6 class="footer-title">Hizmetlerimiz</h6>
+                    <ul class="footer-links">
+                        {{ range .Site.Data.footer.services_column }}
+                        <li><a href="{{ .link | relURL }}">{{ .name }}</a></li>
+                        {{ end }}
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h6 class="footer-title">Makine & Çözümler</h6>
+                    <ul class="footer-links">
+                        {{ range .Site.Data.footer.machines_column }}
+                        <li><a href="{{ .link | relURL }}">{{ .name }}</a></li>
+                        {{ end }}
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h6 class="footer-title">Hızlı Erişim</h6>
+                    <ul class="footer-links">
+                        {{ range .Site.Data.footer.quick_links_column }}
+                        <li><a href="{{ .link | relURL }}">{{ .name }}</a></li>
+                        {{ end }}
+                        {{ with site.Data.contact.whatsapp }}
+                        <li>
+                            <a href="https://wa.me/{{ .link }}" target="_blank">
+                                Hızlı Teklif Al
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+            <div class="flex justify-center items-center">
+                <p class="mb-0">
+                    <a href="{{ .Site.BaseURL }}">
+                        Uzman Hafriyat
+                    </a> &copy; {{ now.Format "2006" }} Tüm hakları saklıdır.
+                </p>
+                <span class="mx-1">|</span>
+                <a href="https://mahmutyukselmert.github.io">
+                    Mahmut Yüksel MERT
+                </a>
+            </div>
+        </section>
+    </div>
+</footer>

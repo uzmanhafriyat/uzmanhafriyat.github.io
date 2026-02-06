@@ -1,0 +1,256 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+media_folder: "static/assets/images"
+public_folder: "/assets/images"
+
+locale: "tr"
+
+collections:
+  - name: "home"
+    label: "Ana Sayfa'yı Düzenleyin"
+    icon: "home"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "home"
+        label: "Ana Sayfa İçeriği"
+        file: "content/_index.md"
+        fields:
+          - { label: "Sayfa Tipi", name: "type", widget: "hidden", default: "home" }
+          - { label: "Hero Görseli", name: "hero_image", widget: "image" }
+          - { label: "Hero Görseli (Mobil)", name: "hero_image_mobile", widget: "image", required: false }
+          - { label: "Hero Başlık", name: "hero_title", widget: "string" }
+          - { label: "Hero Alt Başlık", name: "hero_subtitle", widget: "text" }
+          - { label: "Hakkımızda Görseli", name: "about_image", widget: "image" }
+          - { label: "Hakkımızda Başlık", name: "about_title", widget: "string" }
+          - { label: "Hakkımızda Alt Başlık", name: "about_subtitle", widget: "string" }
+          - { label: "Hakkımızda İçerik", name: "about_content", widget: "markdown" }
+          - { label: "Hakkımızda Video", name: "about_video", widget: "code" }
+
+          - { label: "Hizmetlerimiz Başlık", name: "services_title", widget: "string" }
+          - { label: "Hizmetlerimiz Alt Başlık", name: "services_subtitle", widget: "string" }
+
+          - label: "Hero Buton Ayarları"
+            name: "hero_buttons_block"
+            widget: "object"
+            fields:
+              - { label: "Buton Görünsün mü?", name: "button_show", widget: "boolean" }
+              - { label: "Buton Metni", name: "button_text", widget: "string" }
+              - { label: "Buton Linki", name: "button_link", widget: "string", hint: "Örn: /hizmetler" }
+
+          - label: "Misyon ve Vizyon Bölümü"
+            name: "mission_vision_block"
+            widget: "object"
+            fields:
+              - label: "Gallery"
+                name: "mission_vision_slides"
+                widget: "list"
+                summary: "{{fields.alt}}"
+                fields:
+                  - { label: "Görsel", name: "src", widget: "image" } # String yerine image widget'ı daha iyi olur
+                  - { label: "Görsel Alt Metini", name: "alt", widget: "string" }
+                default:
+                  - src: "/static/assets/images/mission-vision-slide-1.webp"
+                    alt: "Misyon ve Vizyonumuz - 1"
+                  - src: "/static/assets/images/mission-vision-slide-2.webp"
+                    alt: "Misyon ve Vizyonumuz - 2"
+                  - src: "/static/assets/images/mission-vision-slide-3.webp"
+                    alt: "Misyon ve Vizyonumuz - 3"
+
+              - { label: "Misyonumuz Başlığı", name: "mission_title", widget: "string" }
+              - { label: "Misyonumuz İçerik", name: "mission_content", widget: "text" }
+              - { label: "Vizyonumuz Başlığı", name: "vision_title", widget: "string" }
+              - { label: "Vizyonumuz İçerik", name: "vision_content", widget: "text" }
+
+          # --- SEO Ayarlarını En Üste Alabiliriz ---
+          - label: "Hızlı SEO Ayarları"
+            name: "seo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "SEO Başlığı", name: "title", widget: "string" }
+              - { label: "SEO Açıklaması", name: "description", widget: "text" }
+              - { label: "SEO Keywords", name: "keywords", widget: "string" }
+
+  - name: "dynamic_pages"
+    label: "Sayfalar (Builder)"
+    folder: "content/{{locale}}"
+    i18n: true
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Sayfa Başlığı", name: "title", widget: "string" }
+      - { label: "Yayın Durumu", name: "draft", widget: "boolean", default: false }
+
+      - label: "Sayfa İçerik Bölümleri"
+        name: "sections"
+        widget: "list"
+        i18n: true
+        types:
+          - label: "Metin Bloğu"
+            name: "text_block"
+            widget: "object"
+            fields:
+              - { label: "Başlık", name: "title", widget: "string" }
+              - { label: "İçerik", name: "content", widget: "markdown" }
+
+          - label: "Resimli Metin"
+            name: "image_text"
+            widget: "object"
+            fields:
+              - { label: "Başlık", name: "title", widget: "string" }
+              - { label: "Metin", name: "text", widget: "text" }
+              - { label: "Görsel", name: "image", widget: "image" }
+              - { label: "Görsel Yönü", name: "direction", widget: "select", options: ["Sol", "Sağ"] }
+
+          - label: "SSS (Sıkça Sorulan Sorular)"
+            name: "faq_section"
+            widget: "object"
+            fields:
+              - label: "Sorular"
+                name: "questions"
+                widget: "list"
+                fields:
+                  - { label: "Soru", name: "question", widget: "string" }
+                  - { label: "Cevap", name: "answer", widget: "text" }
+
+  - name: "services"
+    label: "Hizmetler"
+    folder: "content/hizmetler"
+    create: true
+    slug: "{{slug}}"
+    re_publish: true
+    fields:
+      - { label: "Hizmet Adı", name: "title", widget: "string" }
+      - {
+          label: "Özel URL (Slug)",
+          name: "slug",
+          widget: "slug",
+          from_field: "title", 
+          hint: "Otomatik oluşur, değiştirebilirsiniz.",
+        }
+      - { label: "Özet Açıklama (Slider için)", name: "summary", widget: "text" }
+      - { label: "Kapak Görseli", name: "image", widget: "image" }
+
+      - label: "Hizmet Galeri (Slider)"
+        name: "gallery_slider"
+        widget: "image"
+        media_library:
+          config:
+            multiple: true
+
+      - { label: "Sayfa Detay Metni", name: "body", widget: "markdown" }
+
+      - label: "Hızlı SEO Ayarları"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "SEO Başlığı", name: "title", widget: "string" }
+          - { label: "SEO Açıklaması", name: "description", widget: "text" }
+          - { label: "SEO Keywords", name: "keywords", widget: "string" }
+
+  - name: "settings"
+    label: "Site Ayarları"
+    icon: "cog"
+    delete: false # Yanlışlıkla silinmesini engeller
+    editor:
+      preview: false
+    files:
+      - name: "general_settings"
+        label: "Genel Ayarlar"
+        file: "data/settings.yml"
+        fields:
+          - { label: "Site Başlığı", name: "site_title", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+      - name: "contact"
+        label: "İletişim ve Sosyal Medya"
+        file: "data/contact.yml" # Verileri 'data' klasöründe saklayacağız
+        fields:
+          - label: "Telefon Numaraları"
+            name: "phones"
+            widget: "list"
+            summary: "{{fields.key}}: {{fields.label}}"
+            fields:
+              - { label: "Numara Anahtarı", name: "key", widget: "string", hint: "örn: mobile, office, home" }
+              - { label: "Numara Etiketi", name: "label", widget: "string", hint: "0 (543) 895 2931" }
+              - {
+                  label: "Aranacak Numara",
+                  name: "number",
+                  widget: "string",
+                  hint: "Boşluksuz yazın, örn: +905321234567",
+                }
+          - label: "WhatsApp Hattı"
+            name: "whatsapp"
+            widget: "object"
+            fields:
+              - { label: "Ekranda Görünecek Metin", name: "display", widget: "string", hint: "Örn: 0 (532) 123 45 67" }
+              - { label: "Link Numarası (Sadece Rakamlar)", name: "link", widget: "string", hint: "Örn: 905321234567" }
+          - label: "E-Posta"
+            name: "email"
+            widget: "string"
+          - label: "Adres"
+            name: "address"
+            widget: "text"
+            required: false
+          - label: "Sosyal Medya Linkleri"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "YouTube", name: "youtube", widget: "string", required: false }
+              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+              - { label: "X (Twitter)", name: "x_twitter", widget: "string", required: false }
+      - name: "seo_settings"
+        label: "SEO Ayarları"
+        file: "data/seo.yml"
+        fields:
+          - label: "Robots.txt İçeriği"
+            name: "robots_text"
+            widget: "text"
+            default: "User-agent: *\nAllow: /"
+            hint: "Buraya yazdığınız kurallar doğrudan robots.txt dosyasına yazılacaktır."
+
+      - name: "footer"
+        label: "Footer Ayarları"
+        file: "data/footer.yml"
+        fields:
+          - label: "Footer Açıklaması Metni"
+            name: "footer_text"
+            widget: "text"
+            default: "Uzman Hafriyat; Altyapı, kanal açma, temel kazısı ve kırım yıkım işlerinizde profesyonel
+              çözüm. 1CX ve 4 tonluk makinelerimizle dar alanlarda yüksek performans. Projelerimizi ve
+              videolarımızı inceleyin."
+
+          - label: "Hizmetlerimiz Kolonu"
+            name: "services_column"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Hizmet Adı", name: "name", widget: "string" }
+              - { label: "Link", name: "link", widget: "string", hint: "örn: /hizmetler/temel-kazisi" }
+
+          - label: "Makine & Çözümler Kolonu"
+            name: "machines_column"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Başlık", name: "name", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+
+          - label: "Hızlı Erişim Kolonu"
+            name: "quick_links_column"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Başlık", name: "name", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
