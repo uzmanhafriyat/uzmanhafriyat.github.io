@@ -5,29 +5,29 @@ defaultContentLanguage = 'tr'
 enableRobotsTXT = true
 
 [languages]
-  [languages.tr]
-    languageName = 'Türkçe'
-    contentDir = 'content' # Türkçe içerikler buraya
-    weight = 1
+[languages.tr]
+languageName = 'Türkçe'
+contentDir = 'content'
+weight = 1
 
 [permalinks]
-  hizmetler = '/hizmet/:slug/'
+hizmetler = '/hizmet/:slug/'
 
 [taxonomies]
 
 [sitemap]
-  changefreq = 'weekly'
-  filename = 'sitemap.xml'
-  priority = 1.0
+changefreq = 'weekly'
+filename = 'sitemap.xml'
+priority = 1.0
 
 [params]
-  author = 'Uzman Hafriyat'
-  description = 'Uzman Hafriyat, inşaat ve hafriyat sektöründe lider bir firmadır. Profesyonel hizmetlerimizle projelerinizi güvenle tamamlıyoruz.'
-  keywords = ['hafriyat', 'inşaat', 'uzman hafriyat', 'toprak taşıma', 'altyapı hizmetleri']
-  googleAnalyticsID = 'G-2GB1D5HTPD'  # Google Analytics ID
-  facebookPage = 'https://www.facebook.com/uzmanhafriyat'
-  instagramPage = 'https://www.instagram.com/uzmanhafriyat'
-  linkedinPage = 'https://www.linkedin.com/company/uzmanhafriyat'
-  twitterPage = 'https://twitter.com/uzmanhafriyat'
-  address = 'Ankara, Türkiye'
-     
+keywords = 'Ankara hafriyat, temel kazısı Ankara, altyapı çalışmaları Ankara, kanal açma hizmeti, beton kırım, bina yıkım işleri, dar alan hafriyatı, mini ekskavatör Ankara, 1CX ekskavatör, hafriyat firması Ankara, moloz atımı, inşaat hafriyatı'
+author = 'Mahmut Yüksel MERT'
+title = 'Ankara Hafriyat, Temel Kazısı ve Altyapı İşlerinde Uzman Çözüm; Uzman Hafriyat'
+description = 'Ankara’da dar alanlara özel 1CX ve 4 tonluk makinelerle temel kazısı, altyapı, kanal açma, bina yıkım ve beton kırım hizmetleri sunan Uzman Hafriyat ile güvenli ve hızlı çözümler.'
+googleAnalyticsID = 'G-2GB1D5HTPD'
+facebookPage = 'https://www.facebook.com/uzmanhafriyat'
+instagramPage = 'https://www.instagram.com/uzmanhafriyat'
+linkedinPage = 'https://www.linkedin.com/company/uzmanhafriyat'
+twitterPage = 'https://twitter.com/uzmanhafriyat'
+address = 'Ankara, Türkiye'
