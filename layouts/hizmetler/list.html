@@ -12,8 +12,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Uzman Hafriyat Hizmet Listesi",
-  "description": "Ankara genelinde sunduğumuz hafriyat, yıkım, kırım ve iş makinesi kiralama hizmetleri.",
+  "name": "Uzman Hafriyat Kepçe Kiralama Hizmet Listesi",
+  "description": "Ankara genelinde sunduğumuz Kepçe kiralama, jcb kiralama, hafriyat, yıkım, kırım ve iş makinesi kiralama hizmetleri.",
   "url": "{{ .Permalink }}",
   "itemListElement": [{{ $hizmetler := where site.RegularPages "Section" "hizmetler" }}{{ range $index, $element := $hizmetler }}{
         "@type": "ListItem",
