@@ -35,12 +35,15 @@
 <meta name="apple-mobile-web-app-title" content="UzmanHaf." />
 <link rel="manifest" href="{{ " /assets/favicon/site.webmanifest" | relURL }}" />
 
+<meta name="google-site-verification" content="BURAYA_GSC_KODUNUZ_GELECEK" />
 {{ if .Site.Params.googleAnalyticsID }}
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalyticsID }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', '{{ .Site.Params.googleAnalyticsID }}');
 </script>
 {{ end }}
