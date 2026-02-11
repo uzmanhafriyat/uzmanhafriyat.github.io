@@ -25,6 +25,11 @@
 
 <body class="{{ if .IsHome }}home-page{{ else }}sub-page{{ end }}">
 
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZS7XL9N"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     {{ partial "components/header.html" . }}
 
     {{ block "content" . }}{{ end }}
