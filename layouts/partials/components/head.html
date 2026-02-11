@@ -79,7 +79,7 @@
 }
 </script>
 
-{{ if .IsHome }}
+{{ if or .IsHome (eq .RelPermalink "/") }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
