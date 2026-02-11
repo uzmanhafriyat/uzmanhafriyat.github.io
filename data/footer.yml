@@ -16,9 +16,9 @@ services_column:
     link: /hizmet/kanalizasyon-calismasi
 machines_column:
   - name: Kiralık 1CX Kepçe
-    link: #
+    link: "#"
   - name: 4 Tonluk Ekskavatör
-    link: #
+    link: "#"
   - name: Dar Alan Hafriyat
     link: /hizmet/temel-duzenlemesi-ve-hafriyat
   - name: Beton ve Şap Kırımı
@@ -28,8 +28,8 @@ machines_column:
   - name: Dükkan Kırım ve Tadilatı
     link: /hizmet/yikim-ve-kirim-isleri
 quick_links_column:
-  - name: Ankara Hafriyat
-    link: /
+  - name: Ankara'daki Kepçe Operatörünüz
+    link: https://uzmanhafriyat.com/ankara-kepce-operatoru/
   - name: Moloz Atımı ve Nakliye
     link: /hizmet/nakliyat-ve-moloz-atimi
   - name: Çevre Düzenleme
