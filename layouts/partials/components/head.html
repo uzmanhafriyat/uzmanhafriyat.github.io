@@ -35,81 +35,6 @@
 <meta name="apple-mobile-web-app-title" content="UzmanHaf." />
 <link rel="manifest" href="{{ " /assets/favicon/site.webmanifest" | relURL }}" />
 
-{{ if eq .Section "hizmetler" }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "{{ .Title }}",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Uzman Hafriyat",
-    "image": "{{ .Params.image | absURL }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ankara",
-      "addressCountry": "TR"
-    },
-    "telephone": "{{ range .Site.Data.contact.phones }}{{ if eq .key "mobile" }}{{ .number }}{{ end }}{{ end }}",
-    "email": "{{ .Site.Data.contact.email }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "{{ .Site.Data.contact.address }}",
-      "addressCountry": "TR"
-    }
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Ankara"
-  },
-  "description": "{{ .Params.seo.description | default .Params.summary }}"
-}
-</script>
-{{ end }}
-
-{{ if eq .RelPermalink "/ankara-kepce-operatoru/" }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Uzman Hafriyat - Sinan Öcal",
-  "jobTitle": "Kepçe Operatörü",
-  "description": "Ankara genelinde profesyonel kepçe operatörlüğü ve hafriyat hizmetleri.",
-  "telephone": "{{ range .Site.Data.contact.phones }}{{ if eq .key "mobile" }}{{ .number }}{{ end }}{{ end }}",
-    "email": "{{ .Site.Data.contact.email }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "{{ .Site.Data.contact.address }}",
-      "addressCountry": "TR",
-      "postalCode": "06000",
-      "streetAddress": "Keçiören, Ankara Türkiye"
-  }
-}
-</script>
-{{ end }}
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": [
-    {{ $list := (where .Site.RegularPages "Section" "hizmetler") | append (where .Site.RegularPages "Section" "pages") }}
-    {{ range $index, $element := $list | first 8 }}
-    {
-      "@type": "SiteNavigationElement",
-      "position": {{ add $index 1 }},
-      "name": "{{ if eq .Section "hizmetler" }}Ankara {{ end }}{{ .Title }}",
-      "url": "{{ .Permalink }}"
-    }{{ if ne (add $index 1) (len ($list | first 8)) }},{{ end }}
-    {{ end }}
-  ]
-}
-</script>
-
-{{ if .Params.schema_code }}
-{{ .Params.schema_code | safeHTML }}
-{{ end }}
-
 {{ if .Site.Params.googleAnalyticsID }}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalyticsID }}"></script>
 <script>
@@ -121,3 +46,114 @@
 {{ end }}
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+{{/* (Tüm Sayfalar İçin Navigasyon) */ }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "{{ .Site.BaseURL }}"
+    }
+    {{ if ne .Section "" }}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ if eq .Section "hizmet" }}Hizmetler{{ else }}{{ .Section | humanize }}{{ end }}",
+      "item": "{{ .Site.BaseURL }}{{ .Section }}/"
+    }
+    {{ end }}
+    {{ if not .IsHome }}
+    ,{
+      "@type": "ListItem",
+      "position": {{ if ne .Section "" }}3{{ else }}2{{ end }},
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+    {{ end }}
+  ]
+}
+</script>
+
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "@id": "{{ .Site.BaseURL }}#organization",
+  "name": "Uzman Hafriyat",
+  "legalName": "Uzman Hafriyat - Sinan Öcal",
+  "url": "{{ .Site.BaseURL }}",
+  "logo": "{{ .Site.BaseURL }}assets/images/uzman-hafriyat-logo.svg",
+  "image": "{{ .Site.BaseURL }}assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp",
+  "telephone": "+905325622419",
+  "email": "iletisim@uzmanhafriyat.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Keçiören",
+    "addressLocality": "Ankara",
+    "addressCountry": "TR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.9986",
+    "longitude": "32.8622"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Sinan Öcal"
+  }
+}
+</script>
+{{ end }}
+
+{{/* Alt Sayfalar (Örn: ankara-kepce-operatoru) */ }}
+{{ if and (not .IsHome) (eq .Section "") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ .Title }}",
+  "description": "{{ .Params.seo.description | default .Summary }}",
+  "url": "{{ .Permalink }}",
+  "image": "{{ .Site.BaseURL }}assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp",
+  "telephone": "+905325622419",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ankara",
+    "addressCountry": "TR"
+  },
+  "employee": {
+    "@type": "Person",
+    "name": "Sinan Öcal",
+    "jobTitle": "Kepçe Operatörü"
+  }
+}
+</script>
+{{ end }}
+
+{{/* 4. HİZMET SINGLE SAYFALARI (Örn: /hizmet/temel-duzenlemesi-ve-hafriyat/) */}}
+{{ if eq .Section "hizmet" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ .Title }}",
+  "description": "{{ .Params.seo.description | default .Summary }}",
+  "provider": {
+    "@type": "GeneralContractor",
+    "name": "Uzman Hafriyat",
+    "@id": "{{ .Site.BaseURL }}#organization"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Ankara"
+  },
+  "image": "{{ if .Params.images }}{{ index .Params.images 0 | absURL }}{{ else }}{{ .Site.BaseURL }}assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp{{ end }}"
+}
+</script>
+{{ end }}
