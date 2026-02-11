@@ -35,15 +35,85 @@
 <meta name="apple-mobile-web-app-title" content="UzmanHaf." />
 <link rel="manifest" href="{{ " /assets/favicon/site.webmanifest" | relURL }}" />
 
+{{ if eq .Section "hizmetler" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "{{ .Title }}",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Uzman Hafriyat",
+    "image": "{{ .Params.image | absURL }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ankara",
+      "addressCountry": "TR"
+    },
+    "telephone": "{{ range .Site.Data.contact.phones }}{{ if eq .key "mobile" }}{{ .number }}{{ end }}{{ end }}",
+    "email": "{{ .Site.Data.contact.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ .Site.Data.contact.address }}",
+      "addressCountry": "TR"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Ankara"
+  },
+  "description": "{{ .Params.seo.description | default .Params.summary }}"
+}
+</script>
+{{ end }}
+
+{{ if eq .RelPermalink "/ankara-kepce-operatoru/" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Uzman Hafriyat - Sinan Öcal",
+  "jobTitle": "Kepçe Operatörü",
+  "description": "Ankara genelinde profesyonel kepçe operatörlüğü ve hafriyat hizmetleri.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ankara",
+    "addressCountry": "TR"
+  }
+}
+</script>
+{{ end }}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {{ $list := (where .Site.RegularPages "Section" "hizmetler") | append (where .Site.RegularPages "Section" "pages") }}
+    {{ range $index, $element := $list | first 8 }}
+    {
+      "@type": "SiteNavigationElement",
+      "position": {{ add $index 1 }},
+      "name": "{{ if eq .Section "hizmetler" }}Ankara {{ end }}{{ .Title }}",
+      "url": "{{ .Permalink }}"
+    }{{ if ne (add $index 1) (len ($list | first 8)) }},{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+
+{{ if .Params.schema_code }}
+{{ .Params.schema_code | safeHTML }}
+{{ end }}
+
 {{ if .Site.Params.googleAnalyticsID }}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalyticsID }}"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ .Site.Params.googleAnalyticsID }}');
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', '{{ .Site.Params.googleAnalyticsID }}');
 </script>
 {{ end }}
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-

@@ -1,5 +1,4 @@
 ---
-
 title: Zemin Düzenlemesi
 slug: zemin-duzenlemesi
 summary: >+

@@ -83,7 +83,7 @@ collections:
 
   - name: "dynamic_pages"
     label: "Sayfalar (Builder)"
-    folder: "content/{{locale}}"
+    folder: "content/pages"
     i18n: true
     create: true
     slug: "{{slug}}"
@@ -122,6 +122,14 @@ collections:
                 fields:
                   - { label: "Soru", name: "question", widget: "string" }
                   - { label: "Cevap", name: "answer", widget: "text" }
+
+      - label: "Hızlı SEO Ayarları"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "SEO Başlığı", name: "title", widget: "string" }
+          - { label: "SEO Açıklaması", name: "description", widget: "text" }
+          - { label: "SEO Keywords", name: "keywords", widget: "string" }
 
   - name: "services"
     label: "Hizmetler"

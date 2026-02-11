@@ -1,0 +1,31 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{ range sort .Site.Pages "RelPermalink" "asc" }}
+    
+    {{ if and (ne .Params.sitemap_exclude true) (ne .RelPermalink "/pages/") (not (in .RelPermalink "/tags/")) (not (in .RelPermalink "/categories/")) }}
+    <url>
+      <loc>{{ .Permalink }}</loc>
+      
+      {{ if not .Lastmod.IsZero }}
+        <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}</lastmod>
+      {{ end }}
+      
+      <changefreq>{{ if .Sitemap.ChangeFreq }}{{ .Sitemap.ChangeFreq }}{{ else }}weekly{{ end }}</changefreq>
+      
+      <priority>
+        {{- if eq .RelPermalink "/" -}}
+          1.0
+        {{- else if in .RelPermalink "/hizmet/" -}}
+          0.9
+        {{- else if eq .Section "pages" -}}
+          0.9
+        {{- else if eq .RelPermalink "/hizmetler/" -}}
+          0.8
+        {{- else -}}
+          0.7
+        {{- end -}}
+      </priority>
+    </url>
+    {{ end }}
+  {{ end }}
+</urlset>

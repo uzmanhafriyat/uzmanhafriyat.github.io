@@ -1,19 +1,62 @@
-{{ define "main" }}
-<section class="services-list">
-  <h1>Hizmetlerimiz</h1>
+{{ define "content" }}
+<main class="sub-page">
+    <!-- Hero -->
+    <section class="hero-banner">
+        <div class="parallax-background">
+            <picture>
+                <source media="(max-width: 768px)"
+                    srcset="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp">
+                <source media="(min-width: 769px)"
+                    srcset="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp">
+                <img src="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp" alt="Hero Slider Image"
+                    loading="eager" fetchpriority="high">
+            </picture>
+            <!-- Overlay -->
+            <div class="parallax-overlay"></div>
+            <!-- Content -->
+            <div class="parallax-content">
+                <h1 class="section-subtitle">Ankara Hafriyat ve İş Makinesi Hizmetleri</h1>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Page Banner -->
 
-  <div class="services-grid">
-    {{ range .Pages }}
-      <article class="service-card">
-        <a href="{{ .RelPermalink }}">
-          {{ with .Params.image }}
-            <img src="{{ . }}" alt="{{ $.Title }}">
-          {{ end }}
-          <h2>{{ .Title }}</h2>
-          <p>{{ .Params.summary }}</p>
-        </a>
-      </article>
-    {{ end }}
-  </div>
-</section>
+    <section class="services-section mt-5 py-3" id="services-section">
+        <div class="container">
+
+            <div class="row justify-center items-center">
+                <div class="col-md-10 justify-center text-center">
+                    <h2 class="text-primary"> Uzman Kadro İle Profesyonel Kazı, Kırım ve Altyapı Çözümleri </h2>
+                    <div class="content">
+                        <p>Ankara'nın her bölgesinde, modern iş makinesi parkurumuz (1CX, JCB, Ekskavatör) ve tecrübeli
+                            operatörlerimizle projelerinize güç katıyoruz. Temel kazısından güvenli bina yıkımına, dar
+                            alan hafriyatından çevre düzenlemeye kadar tüm süreçlerde profesyonel çözüm ortağınızız.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row services-slider">
+                {{ range where site.RegularPages "Section" "hizmetler" }}
+                <div class="service-slide mb-4">
+                    <div class="service-card">
+                        <div class="service-poster">
+                            <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                        </div>
+
+                        <div class="service-content">
+                            <h3>{{ .Title }}</h3>
+                            <p>{{ .Params.summary }}</p>
+
+                            <a href="{{ .RelPermalink }}" class="service-link">
+                                <span>{{ .Title }} Detayları</span>
+                                <i class="icon-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+</main>
 {{ end }}

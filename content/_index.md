@@ -78,5 +78,6 @@ seo:
   description: Ankara bölgesinde Altyapıdan temel kazısına, kırım işlerinden
     makine kiralamaya kadar her adımda profesyonel hizmet ve zamanında teslimat
     garantisi.
-  keywords: ankara hafriyat
+  keywords: Ankara hafriyat, temel kazısı Ankara, altyapı çalışmaları Ankara,
+    kanal açma hizmeti, beton kırım, bina yıkım işleri
 ---

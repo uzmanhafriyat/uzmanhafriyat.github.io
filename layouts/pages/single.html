@@ -1,0 +1,77 @@
+{{ define "content" }}
+<main class="sub-page">
+    <!-- Hero -->
+    <section class="hero-banner">
+        <div class="parallax-background">
+            <picture>
+                <source media="(max-width: 768px)"
+                    srcset="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp">
+                <source media="(min-width: 769px)"
+                    srcset="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp">
+                <img src="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp" alt="Hero Slider Image"
+                    loading="eager" fetchpriority="high">
+            </picture>
+            <!-- Overlay -->
+            <div class="parallax-overlay"></div>
+            <!-- Content -->
+            <div class="parallax-content">
+                <h1 class="section-subtitle">{{ .Title }}</h1>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Page Banner -->
+
+    {{ range .Params.sections }}
+    {{ if eq .type "text_block" }}
+    <section class="single-service-section">
+        <div class="container">
+            <div class="row">
+                {{ if .subtitle }}<h2>{{ .subtitle }}</h2>{{ end }}
+                <div class="prose">
+                    {{ .content | markdownify }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{ else if eq .type "image_text" }}
+    <section class="image-text-block py-5 container">
+        <div class="grid {{ if eq .direction " Sağ" }}reverse{{ end }}"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center;">
+
+            {{ if eq .direction "Sol" }}
+            <div class="image-side"><img src="{{ .image | relURL }}" alt="{{ .title }}"
+                    style="width: 100%; border-radius: 10px;"></div>
+            <div class="text-side">
+                <h2>{{ .title }}</h2>
+                <p>{{ .text }}</p>
+            </div>
+            {{ else }}
+            <div class="text-side">
+                <h2>{{ .title }}</h2>
+                <p>{{ .text }}</p>
+            </div>
+            <div class="image-side"><img src="{{ .image | relURL }}" alt="{{ .title }}"
+                    style="width: 100%; border-radius: 10px;"></div>
+            {{ end }}
+        </div>
+    </section>
+
+    {{ else if eq .type "faq_section" }}
+    <section class="faq-section py-5 container">
+        <h2 class="text-center mb-4">Sıkça Sorulan Sorular</h2>
+        <div class="faq-list">
+            {{ range .questions }}
+            <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                <summary style="font-weight: bold; cursor: pointer; list-style: none;">
+                    <i class="icon-chevron-right"></i> {{ .question }}
+                </summary>
+                <p style="margin-top: 1rem; color: #666;">{{ .answer }}</p>
+            </details>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+    {{ end }}
+</main>
+{{ end }}
