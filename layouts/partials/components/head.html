@@ -75,10 +75,12 @@
   "name": "Uzman Hafriyat - Sinan Öcal",
   "jobTitle": "Kepçe Operatörü",
   "description": "Ankara genelinde profesyonel kepçe operatörlüğü ve hafriyat hizmetleri.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Ankara",
-    "addressCountry": "TR"
+  "telephone": "{{ range .Site.Data.contact.phones }}{{ if eq .key "mobile" }}{{ .number }}{{ end }}{{ end }}",
+    "email": "{{ .Site.Data.contact.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ .Site.Data.contact.address }}",
+      "addressCountry": "TR"
   }
 }
 </script>
