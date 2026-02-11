@@ -50,7 +50,7 @@ services_subtitle: Ankara genelinde temel kazısından altyapı çalışmaların
 hero_buttons_block:
   button_show: true
   button_text: Hizmetlerimizi Keşfedin
-  button_link: "#services-section"
+  button_link: https://uzmanhafriyat.com/hizmetler/
 mission_vision_block:
   mission_content: İnşaat ve yapı sektörünün ihtiyaç duyduğu hafriyat, altyapı,
     kanal ve kırım hizmetlerini; iş güvenliği standartlarından ödün vermeden en
