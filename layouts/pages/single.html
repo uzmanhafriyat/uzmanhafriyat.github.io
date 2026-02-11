@@ -1,3 +1,30 @@
+{{ define "breadcrumb_items" }}
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+{{ end }}
+
+{{ define "extra_schema" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ .Title }} - Uzman Hafriyat",
+  "description": "{{ .Params.seo.description | default .Summary }}",
+  "url": "{{ .Permalink }}",
+  "telephone": "+905325622419",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ankara",
+    "addressCountry": "TR"
+  }
+}
+</script>
+{{ end }}
+
 {{ define "content" }}
 <main class="sub-page">
     <!-- Hero -->

@@ -1,3 +1,59 @@
+{{ define "extra_schema" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "@id": "{{ .Site.BaseURL }}#organization",
+  "name": "Uzman Hafriyat",
+  "legalName": "Uzman Hafriyat - Sinan Öcal",
+  "url": "{{ .Site.BaseURL }}",
+  "logo": "{{ .Site.BaseURL }}assets/images/uzman-hafriyat-logo.svg",
+  "image": "{{ .Site.BaseURL }}assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp",
+  "telephone": "+905325622419",
+  "email": "uzmanharfiyatcom@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Keçiören",
+    "addressLocality": "Ankara",
+    "addressCountry": "TR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.9986",
+    "longitude": "32.8622"
+  },
+  "areaServed": [
+    "Akyurt", "Altındağ", "Ayaş", "Bâlâ", "Beypazarı", "Çamlıdere", "Çankaya", "Çubuk", 
+    "Elmadağ", "Etimesgut", "Evren", "Gölbaşı", "Güdül", "Haymana", "Kahramankazan", 
+    "Kalecik", "Keçiören", "Kızılcahamam", "Mamak", "Nallıhan", "Polatlı", "Pursaklar", 
+    "Sincan", "Şereflikoçhisar", "Yenimahalle"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Sinan Öcal",
+    "jobTitle": "Kepçe Operatörü & Firma Sahibi"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Uzman Hafriyat Hizmetleri",
+    "itemListElement": [
+      {{ $hizmetler := where site.RegularPages "Section" "hizmetler" }}
+      {{ range $index, $element := $hizmetler }}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "{{ .Title }}",
+          "url": "{{ .Permalink }}"
+        }
+      }{{ if ne (add $index 1) (len $hizmetler) }},{{ end }}
+      {{ end }}
+    ]
+  }
+}
+</script>
+{{ end }}
+
 {{ define "content" }}
     {{ partial "home/hero.html" . }}
     <main>

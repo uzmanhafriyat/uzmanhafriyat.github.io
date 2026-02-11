@@ -1,3 +1,45 @@
+{{ define "breadcrumb_items" }}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hizmetler",
+      "item": "{{ "hizmetler/" | absURL }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+{{ end }}
+
+{{ define "extra_schema" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ .Title }}",
+  "description": "{{ .Params.seo.description | default .Summary }}",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Uzman Hafriyat",
+    "url": "{{ .Site.BaseURL }}",
+    "telephone": "+905325622419",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ankara",
+      "addressCountry": "TR"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Ankara"
+  },
+  "image": "{{ if .Params.gallery_slider }}{{ index .Params.gallery_slider 0 | absURL }}{{ else if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp" | absURL }}{{ end }}"
+}
+</script>
+{{ end }}
+
 {{ define "content" }}
 <main class="sub-page">
     {{ partial "hizmetler/page-hero.html" . }}

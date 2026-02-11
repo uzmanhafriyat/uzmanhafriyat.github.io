@@ -1,3 +1,30 @@
+{{ define "breadcrumb_items" }}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hizmetler",
+      "item": "{{ "hizmetler/" | absURL }}"
+    }
+{{ end }}
+
+{{ define "extra_schema" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Uzman Hafriyat Hizmet Listesi",
+  "description": "Ankara genelinde sunduğumuz hafriyat, yıkım, kırım ve iş makinesi kiralama hizmetleri.",
+  "url": "{{ .Permalink }}",
+  "itemListElement": [{{ $hizmetler := where site.RegularPages "Section" "hizmetler" }}{{ range $index, $element := $hizmetler }}{
+        "@type": "ListItem",
+        "position": {{ add $index 1 }},
+        "name": "{{ .Title }}",
+        "url": "{{ .Permalink }}"
+    }{{ if ne (add $index 1) (len $hizmetler) }},{{ end }}{{ end }}]
+}
+</script>
+{{ end }}
+
 {{ define "content" }}
 <main class="sub-page">
     <!-- Hero -->

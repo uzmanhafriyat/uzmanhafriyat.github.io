@@ -3,6 +3,24 @@
 
 <head>
     {{ partial "components/head.html" . }}
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": "{{ .Site.BaseURL }}"
+        }
+        {{- block "breadcrumb_items" . }}{{ end -}}
+    ]
+    }
+    </script>
+
+    {{ block "extra_schema" . }}{{ end }}
 </head>
 
 <body class="{{ if .IsHome }}home-page{{ else }}sub-page{{ end }}">
