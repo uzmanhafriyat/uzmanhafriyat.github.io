@@ -1,8 +1,9 @@
-local_backend: true
+local_backend: false
 backend:
-  name: proxy
-  proxy_url: http://localhost:8081/api/v1
-  branch: backend
+  name: github
+  repo: uzmanhafriyat/uzmanhafriyat.github.io
+  branch: main
+  client_id: Ov23lipbNWWdNWmS4GWK
 
 slug:
   encoding: "ascii"
