@@ -3,7 +3,8 @@ backend:
   name: github
   repo: uzmanhafriyat/uzmanhafriyat.github.io
   branch: main
-  client_id: Ov23lipbNWWdNWmS4GWK
+  base_url: https://uzmanhafriyat.com
+  auth_endpoint: /auth
 
 slug:
   encoding: "ascii"
