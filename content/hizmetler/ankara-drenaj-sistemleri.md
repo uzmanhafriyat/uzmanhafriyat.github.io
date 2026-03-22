@@ -1,7 +1,7 @@
 ---
 
 title: Drenaj Çalışmaları
-slug: direnaj-calismasi
+slug: ankara-drenaj-sistemleri
 summary: >+
   Su birikmesi ve zemin problemlerine karşı Ankara’da profesyonel drenaj
   kazı ve uygulama çözümleri sunuyoruz.
