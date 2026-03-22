@@ -3,7 +3,7 @@ backend:
   name: github
   repo: uzmanhafriyat/uzmanhafriyat.github.io
   branch: main
-  base_url: https://uzmanhafriyat.com
+  base_url: http://localhost:1313
   auth_endpoint: /auth
 
 slug:
