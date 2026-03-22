@@ -3,44 +3,50 @@
         <div class="section-heading">
             <h2 class="section-subtitle text-center">Ankara Kepçe Kiralama Hizmetleri</h2>
             <div class="content text-center">
-                <p class="font-secondary">Ankara genelinde kepçe kiralama hizmetlerinden temel kazı çalışmalarına, altyapı projelerine, güvenli bina yıkımından kırım işlerine kadar tüm projelerinizde profesyonel çözüm ortağınızız.</p>
+                <div class="col-lg-9 offset-lg-1">
+                    <p class="font-primary">Ankara genelinde kepçe kiralama hizmetlerinden temel kazı çalışmalarına,
+                        altyapı
+                        projelerine, güvenli bina yıkımından kırım işlerine kadar tüm projelerinizde profesyonel çözüm
+                        ortağınızız.</p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="services-slider">
-            <div class="services-viewport" id="slider-embla">
-                <div class="services-container embla__container">
+    <div class="services-slider">
+        <div class="services-viewport" id="slider-embla">
+            <div class="services-container embla__container">
 
-                    {{ range where site.RegularPages "Section" "hizmetler" }}
-                    <div class="service-slide">
-                        <div class="service-card">
-                            <div class="service-poster">
-                                <img src="{{ .Params.image }}" alt="{{ .Title }}">
-                            </div>
+                {{ range where site.RegularPages "Section" "hizmetler" }}
+                <div class="service-slide">
+                    <div class="service-card">
+                        <div class="service-poster">
+                            <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                        </div>
 
-                            <div class="service-content">
-                                <h3>{{ .Title }}</h3>
-                                <p>{{ .Params.summary }}</p>
+                        <div class="service-content">
+                            <h3>{{ .Title }}</h3>
+                            <p>{{ .Params.summary }}</p>
 
-                                <a href="{{ .RelPermalink }}" class="service-link">
-                                    <span>{{ .Title }} Detaylı İncele</span>
-                                    <i class="icon-chevron-right"></i>
-                                </a>
-                            </div>
+                            <a href="{{ .RelPermalink }}" class="service-link">
+                                <span>{{ .Title }} İncele</span>
+                                <i class="icon-chevron-right"></i>
+                            </a>
                         </div>
                     </div>
-                    {{ end }}
+                </div>
+                {{ end }}
 
-                </div>
-                <div class="slider-controls">
-                    <button class="prev-btn">
-                        <i class="icon-chevron-left"></i>
-                    </button>
-                    <button class="next-btn">
-                        <i class="icon-chevron-right"></i>
-                    </button>
-                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="prev-btn">
+                    <i class="icon-chevron-left"></i>
+                </button>
+                <button class="next-btn">
+                    <i class="icon-chevron-right"></i>
+                </button>
             </div>
         </div>
+    </div>
     </div>
 </section>

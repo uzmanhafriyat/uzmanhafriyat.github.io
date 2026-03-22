@@ -4,9 +4,9 @@ slug: kanal-calismasi
 summary: >
   Altyapı ve tesisat projeleri için Ankara’da kanal kazı ve düzenleme
   çalışmalarını güvenli ve hızlı şekilde gerçekleştiriyoruz.
-image: /assets/images/kanal-calismasi-1.jpg
+image: /assets/images/altyapi-calismasi_altyapi-calismasi_IMG_20230121_142226.webp
 gallery_slider:
-  - /assets/images/kanal-calismasi-1.jpg
+  - /assets/images/kanal-calismasi-1.webp
   - /assets/images/altyapi-kanal-calismasi-1.webp
 seo:
   title: Ankara Kanal Çalışmaları | Uzman Hafriyat

@@ -1,7 +1,10 @@
-local_backend: true
+local_backend: false
 backend:
-  name: git-gateway
-  branch: backend
+  name: github
+  repo: uzmanhafriyat/uzmanhafriyat.github.io
+  branch: main
+  base_url: https://uzmanhafriyat.com
+  auth_endpoint: /auth
 
 slug:
   encoding: "ascii"

@@ -1,7 +1,7 @@
 ---
 title: Hafriyat ve Kazı İşleri
 slug: hafriyat-ve-kazi-isleri
-image: /assets/images/1cx-ve-4_tonluk_exskavator-calismasi-1.webp
+image: /assets/images/mission-vision-slide-2.webp
 summary: >+
   Ankara’da bina temeli, kanal ve saha kazı işlemlerini modern ekipmanlar
   ve uzman operatörlerle güvenli şekilde gerçekleştiriyoruz.

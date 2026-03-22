@@ -1,7 +1,7 @@
 ---
 title: Dolgu ve Tesviye
 slug: dolgu-ve-tesviye
-image: /assets/images/teme_tasviye_isleri_1.webp
+image: /assets/images/temel-duzenlemesi-ve-hafriyat_IMG_20230920_154246.webp
 summary: >+
   Arazi düzenleme, dolgu ve tesviye çalışmalarıyla projeleriniz için
   sağlam ve dengeli zeminler hazırlıyoruz.

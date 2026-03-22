@@ -1,1 +1,0 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0d4f2320-a528-4c9e-8a83-cfd56c6dfa5d/deploy-status)](https://app.netlify.com/projects/timely-bubblegum-198958/deploys)

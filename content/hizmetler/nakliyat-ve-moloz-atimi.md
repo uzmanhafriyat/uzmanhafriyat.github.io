@@ -4,9 +4,9 @@ slug: nakliyat-ve-moloz-atimi
 summary: >
   İnşaat ve yıkım sonrası oluşan molozları Ankara’da yasal döküm sahalarına
   hızlı ve güvenli şekilde taşıyoruz.
-image: /assets/images/nakliye-ve-moloz-atimi.jpg
+image: /assets/images/mission-vision-slide-2.webp
 gallery_slider:
-  - /assets/images/nakliye-ve-moloz-atimi.jpg
+  - /assets/images/mission-vision-slide-2.webp
 seo:
   title: Ankara Nakliyat ve Moloz Atımı | Uzman Hafriyat
   description: Ankara moloz atımı ve hafriyat nakliyatı hizmetleri Uzman Hafriyat

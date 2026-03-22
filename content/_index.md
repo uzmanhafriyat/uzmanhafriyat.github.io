@@ -33,7 +33,7 @@ hero_subtitle: >+
   kiralamaya kadar her adımda profesyonel hizmet ve zamanında teslimat
   garantisi.
 
-about_image: /assets/images/IMG_20231005_133331.webp
+about_image: /assets/images/hakkimizda_gorsel_kirim-calismasi_IMG_20231005_133331_optmize.webp
 about_subtitle: "Ankara Hafriyat ve Altyapı Hizmetleri: Uzman Hafriyat Güvencesiyle"
 about_video:
   code: '<iframe width="361" height="641"
