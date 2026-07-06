@@ -3,15 +3,69 @@ media:
   output: /uploads
 
 content:
+  - name: pages
+    label: Sayfalar
+    type: collection
+    path: content/pages
+
+    fields:
+      - { name: title, type: string }
+      - { name: slug, type: string }
+      - { name: draft, type: boolean }
+
+      - name: sections
+        type: list
+        item:
+          type: object
+          fields:
+            - { name: type, type: string }
+            - { name: title, type: string }
+            - { name: subtitle, type: string }
+            - { name: content, type: rich-text }
+
+      - name: seo
+        type: object
+        fields:
+          - { name: title, type: string }
+          - { name: description, type: text }
+          - { name: keywords, type: text }
   - name: blog
     label: Blog
     type: collection
     path: content/blog
-    filename: "{year}-{month}-{day}-{primary}.md"
-    view:
-      fields: [title, date]
+    filename: "{primary}.md"
+
     fields:
       - { name: title, label: Başlık, type: string }
+      - { name: slug, label: Slug, type: string }
       - { name: date, label: Tarih, type: date }
-      - { name: draft, label: Taslak, type: boolean, default: false }
+      - { name: draft, label: Taslak, type: boolean }
+      - { name: summary, label: Özet, type: text }
+
+      - name: seo
+        label: SEO
+        type: object
+        fields:
+          - { name: title, label: SEO Başlığı, type: string }
+          - { name: description, label: SEO Açıklaması, type: text }
+          - { name: keywords, label: Anahtar Kelimeler, type: text }
+
       - { name: body, label: İçerik, type: rich-text }
+  - name: hizmetler
+    label: Hizmetler
+    type: collection
+    path: content/hizmetler
+
+    fields:
+      - { name: title, type: string }
+      - { name: slug, type: string }
+      - { name: summary, type: text }
+
+      - { name: image, type: image }
+
+      - name: gallery_slider
+        type: list
+        item:
+          type: image
+
+      - { name: body, type: rich-text }
