@@ -3,6 +3,149 @@ media:
   output: /uploads
 
 content:
+  - name: home
+    label: Ana Sayfa
+    type: file
+    path: content/_index.md
+
+    fields:
+      - name: hero_title
+        label: Hero Başlığı
+        type: string
+
+      - name: hero_subtitle
+        label: Hero Alt Başlığı
+        type: text
+
+      - name: hero_image
+        label: Hero Görseli
+        type: image
+
+      - name: hero_buttons_block
+        label: Hero Butonu
+        type: object
+        fields:
+          - name: button_show
+            label: Göster
+            type: boolean
+
+          - name: button_text
+            label: Buton Yazısı
+            type: string
+
+          - name: button_link
+            label: Link
+            type: string
+
+      - name: about_section
+        label: Hakkımızda
+        type: object
+        fields:
+          - name: enable
+            type: boolean
+
+          - name: title
+            label: Başlık
+            type: string
+
+          - name: subtitle
+            label: Alt Başlık
+            type: string
+
+          - name: image
+            label: Görsel
+            type: image
+
+          - name: button_text
+            label: Buton Yazısı
+            type: string
+
+          - name: button_url
+            label: Buton Linki
+            type: string
+
+          - name: paragraphs
+            label: Paragraflar
+            type: rich-text
+            list: true
+
+      - name: why_section
+        label: Neden Biz
+        type: object
+        fields:
+          - name: enable
+            type: boolean
+
+          - name: title
+            type: string
+
+          - name: subtitle
+            type: string
+
+          - name: image
+            type: image
+
+          - name: video_url
+            type: string
+
+          - name: video_title
+            type: string
+
+          - name: paragraphs
+            type: rich-text
+            list: true
+
+          - name: features
+            label: Özellikler
+            type: object
+            list: true
+            fields:
+              - name: title
+                type: string
+
+              - name: description
+                type: text
+
+      - name: services_title
+        label: Hizmetler Başlığı
+        type: string
+
+      - name: services_subtitle
+        label: Hizmetler Alt Başlığı
+        type: text
+
+      - name: mission_vision_block
+        label: Misyon & Vizyon
+        type: object
+        fields:
+          - name: mission_title
+            type: string
+
+          - name: mission_content
+            type: rich-text
+
+          - name: vision_title
+            type: string
+
+          - name: vision_content
+            type: rich-text
+
+      - name: seo
+        label: SEO
+        type: object
+        fields:
+          - name: title
+            label: SEO Başlığı
+            type: string
+
+          - name: description
+            label: SEO Açıklaması
+            type: text
+
+          - name: keywords
+            label: Anahtar Kelimeler
+            type: text
+
   - name: pages
     label: Sayfalar
     type: collection
