@@ -1,0 +1,17 @@
+media:
+  input: static/uploads
+  output: /uploads
+
+content:
+  - name: blog
+    label: Blog
+    type: collection
+    path: content/blog
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date]
+    fields:
+      - { name: title, label: Başlık, type: string }
+      - { name: date, label: Tarih, type: date }
+      - { name: draft, label: Taslak, type: boolean, default: false }
+      - { name: body, label: İçerik, type: rich-text }
