@@ -1,2 +1,36 @@
-site_title: Uzman Hafriyat
-logo: /assets/images/uzman-hafriyat-logo.svg
+footer_text: Uzman Hafriyat; Ankara kepçe kiralama, Keçiören kiralık kepçe, moloz
+  atımı, kanalizasyon kazısı ve temel kazısı işlerinde operatörlü profesyonel
+  çözümler sunar.
+services_column:
+  - name: Keçiören Kepçe Kiralama
+    link: /hizmet/kecioren-kepce-kiralama
+  - name: Ankara Moloz Atımı ve Yasal Döküm
+    link: /hizmet/ankara-moloz-atimi-ve-yasal-dokum
+  - name: Kanalizasyon ve Logar Hat Kazısı
+    link: /hizmet/kanalizasyon-ve-logar-hat-kazisi
+  - name: Bahçe Düzenleme ve Toprak Serimi
+    link: /hizmet/bahce-duzenleme-ve-toprak-serimi-ankara
+  - name: Pursaklar ve Yenimahalle Hafriyat
+    link: /hizmet/pursaklar-ve-yenimahalle-hafriyat
+
+machines_column:
+  - name: Keçiören Kiralık Kepçe ve JCB
+    link: /kecioren-kiralik-kepce-ve-jcb
+  - name: Ankara Kepçe Kiralama
+    link: /ankara-kepce-kiralama
+  - name: Ankara İş Makinesi Kiralama
+    link: /ankara-is-makinesi-kiralama
+  - name: 4 Tonluk Ekskavatör
+    link: /ankara-ekskavator-kiralama
+  - name: Ankara Kiralık Kepçe
+    link: /ankara-kepce-kiralama
+  
+quick_links_column:
+  - name: Ankara Moloz Atımı Fiyatları
+    link: /ankara-moloz-atimi-fiyatlari
+  - name: Ankara Kanalizasyon Kazısı
+    link: /ankara-kanalizasyon-kazisi-ve-altyapi
+  - name: Keçiören Temel Kazısı
+    link: /temel-kazisi-firmalari-kecioren
+  - name: Etlik Ovacık Kiralık Kepçe
+    link: /etlik-ovacik-kiralik-kepce

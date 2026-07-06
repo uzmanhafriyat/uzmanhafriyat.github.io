@@ -11,42 +11,41 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="services-slider">
-        <div class="services-viewport" id="slider-embla">
-            <div class="services-container embla__container">
+        <div class="services-slider">
+            <div class="services-viewport" id="slider-embla">
+                <div class="services-container embla__container">
 
-                {{ range where site.RegularPages "Section" "hizmetler" }}
-                <div class="service-slide">
-                    <div class="service-card">
-                        <div class="service-poster">
-                            <img src="{{ .Params.image }}" alt="{{ .Title }}">
-                        </div>
+                    {{ range where site.RegularPages "Section" "hizmetler" }}
+                    <div class="service-slide">
+                        <div class="service-card">
+                            <div class="service-poster">
+                                <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                            </div>
 
-                        <div class="service-content">
-                            <h3>{{ .Title }}</h3>
-                            <p>{{ .Params.summary }}</p>
+                            <div class="service-content">
+                                <h3>{{ .Title }}</h3>
+                                <p>{{ .Params.summary }}</p>
 
-                            <a href="{{ .RelPermalink }}" class="service-link">
-                                <span>{{ .Title }} İncele</span>
-                                <i class="icon-chevron-right"></i>
-                            </a>
+                                <a href="{{ .RelPermalink }}" class="service-link">
+                                    <span>{{ .Title }} İncele</span>
+                                    <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {{ end }}
+                    {{ end }}
 
-            </div>
-            <div class="slider-controls">
-                <button class="prev-btn">
-                    <i class="icon-chevron-left"></i>
-                </button>
-                <button class="next-btn">
-                    <i class="icon-chevron-right"></i>
-                </button>
+                </div>
+                <div class="slider-controls">
+                    <button class="prev-btn">
+                        <i class="icon-chevron-left"></i>
+                    </button>
+                    <button class="next-btn">
+                        <i class="icon-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>

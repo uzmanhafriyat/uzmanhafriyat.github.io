@@ -1,36 +1,40 @@
-footer_text: Uzman Hafriyat; Altyapı, kanal açma, temel kazısı ve kırım yıkım
-  işlerinizde profesyonel çözüm. 1CX ve 4 tonluk makinelerimizle dar alanlarda
-  yüksek performans. Projelerimizi ve videolarımızı inceleyin.
+footer_text: Uzman Hafriyat; Ankara kepçe kiralama, Keçiören kiralık kepçe, moloz
+  atımı, kanalizasyon kazısı ve temel kazısı işlerinde operatörlü profesyonel
+  çözümler sunar.
 services_column:
-  - name: Temel Kazısı İşleri
-    link: /hizmet/temel-duzenlemesi-ve-hafriyat/
-  - name: Altyapı ve Kanalizasyon
-    link: /hizmet/altyapi-calismasi
-  - name: Bina Yıkımı ve Söküm
-    link: /hizmet/nakliyat-ve-moloz-atimi
-  - name: Saha ve Zemin Düzenleme
-    link: /hizmet/zemin-duzenlemesi
-  - name: Dar Alan Hafriyat
-    link: /hizmet/temel-duzenlemesi-ve-hafriyat
+  - name: Keçiören Kepçe Kiralama
+    link: /hizmet/kecioren-kepce-kiralama
+  - name: Ankara Moloz Atımı ve Yasal Döküm
+    link: /hizmet/ankara-moloz-atimi-ve-yasal-dokum
+  - name: Kanalizasyon ve Logar Hat Kazısı
+    link: /hizmet/kanalizasyon-ve-logar-hat-kazisi
+  - name: Bahçe Düzenleme ve Toprak Serimi
+    link: /hizmet/bahce-duzenleme-ve-toprak-serimi-ankara
+  - name: Pursaklar ve Yenimahalle Hafriyat
+    link: /hizmet/pursaklar-ve-yenimahalle-hafriyat
 
 machines_column:
-  - name: Kiralık 1CX Kepçe
-    link: /ankara-ekskavator-kiralama
-  - name: 4 Tonluk Ekskavatör
-    link: /ankara-ekskavator-kiralama
+  - name: Keçiören Kiralık Kepçe ve JCB
+    link: /kecioren-kiralik-kepce-ve-jcb
   - name: Ankara Kepçe Kiralama
     link: /ankara-kepce-kiralama
-  - name: Ankara Kepçe Operatörü
-    link: /ankara-kepce-operatoru
-  - name: İş Makinesi Kiralama
+  - name: Ankara Kiralık Kepçe
+    link: /ankara-kepce-kiralama
+  - name: Ankara İş Makinesi Kiralama
     link: /ankara-is-makinesi-kiralama
-  
+  - name: Ankara Kiralık İş Makinesi
+    link: /ankara-is-makinesi-kiralama
+
 quick_links_column:
-  - name: Moloz Atımı ve Nakliye
-    link: /hizmet/nakliyat-ve-moloz-atimi
-  - name: Beton, Şap ve Dükkan Kırımı
-    link: /hizmet/yikim-ve-kirim-isleri
-  - name: Drenaj Sistemleri
-    link: /hizmet/ankara-drenaj-sistemleri
-  - name: Çevre Düzenleme
-    link: /hizmet/temel-duzenlemesi-ve-hafriyat
+  - name: Ankara Hafriyat Blog
+    link: /blog/
+  - name: Ankara Ekskavatör Kiralama
+    link: /ankara-ekskavator-kiralama
+  - name: Ankara Moloz Atımı Fiyatları
+    link: /ankara-moloz-atimi-fiyatlari
+  - name: Ankara Kanalizasyon Kazısı
+    link: /ankara-kanalizasyon-kazisi-ve-altyapi
+  - name: Keçiören Temel Kazısı
+    link: /temel-kazisi-firmalari-kecioren
+  - name: Etlik Ovacık Kiralık Kepçe
+    link: /etlik-ovacik-kiralik-kepce

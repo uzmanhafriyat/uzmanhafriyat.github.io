@@ -33,16 +33,54 @@ hero_subtitle: >+
   kiralamaya kadar her adımda profesyonel hizmet ve zamanında teslimat
   garantisi.
 
-about_image: /assets/images/hakkimizda_gorsel_kirim-calismasi_IMG_20231005_133331_optmize.webp
-about_subtitle: "Ankara Hafriyat ve Altyapı Hizmetleri: Uzman Hafriyat Güvencesiyle"
-about_video:
-  code: '<iframe width="361" height="641"
-    src="https://www.youtube.com/embed/ibqbCNo8NcE" title="Moloz Yükleme -
-    #inşaat #kirim #inşaat" frameborder="0" allow="accelerometer; autoplay;
-    clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen=""></iframe>'
-  lang: html
+about_section:
+  enable: true
+  title: "Uzman Hafriyat Kimdir?"
+  subtitle: "Ankara Hafriyat ve Altyapı Hizmetleri: Uzman Hafriyat Güvencesiyle"
+  image: "/assets/images/1cx-ve-4_tonluk_exskavator-calismasi-1.webp"
+  button_text: "Hikayemizi ve Detayları Okuyun"
+  button_url: "./uzman-hafriyat-kimdir.html"
+  paragraphs:
+    - "**Uzman Hafriyat** olarak, bu mesleği sadece bir iş değil; babalarımızdan devraldığımız bir **aile mirası** ve **onur vesilesi** olarak görüyoruz. Toprağın dilini ve sahanın zorluklarını nesillerdir süregelen bu tecrübeyle biliyor, babalarımızdan aldığımız **“dürüst iş, sağlam temel”** ilkesini modern teknolojiyle birleştiriyoruz. Her projeyi kendi yatırımımız gibi sahiplenirken, yarım asra yaklaşan bu birikimi güveninize sunuyoruz."
+    - "Babalarımızdan devraldığımız bu kadim tecrübeyi, bugün sektörün en güçlü **makine parkuru** ve **uzman operatör kadromuzla** geleceğe taşıyoruz. Özellikle dar alanlarda ve şehir içi şantiyelerde fark yaratan **1CX ve 4 tonluk kompakt ekskavatörlerimizle**, rakiplerimizin giremediği en hassas noktalarda büyük işler başarıyoruz. Manevra kabiliyeti yüksek bu özel ekipmanlarımızla, çevreye ve komşu yapılara zarar vermeden projelerinizi hızlandırıyoruz."
+    - "Hizmetlerimizi sadece hafriyatla sınırlı tutmuyoruz; bir yapının can damarı olan **altyapı ve kanal çalışmalarından**, inşaatın başlangıcı olan **temel kazılarına** kadar her aşamada biz varız. **Kentsel dönüşüm** ve **tadilat süreçlerinde** ihtiyaç duyulan **bina içi ve dışı kırım / yıkım işlerini**, *önce güvenlik* ilkesiyle ve tam kontrollü bir şekilde gerçekleştiriyoruz."
+
+# "Neden Uzman Hafriyat?" Bölümü Ayarları
+why_section:
+  enable: true
+  title: "Neden Uzman Hafriyat?"
+  subtitle: "Ankara Kepçe Kiralama ve Hafriyat Hizmetleri"
+  image: "/assets/images/resim-galerisi_IMG20250707111919.webp"
+  video_url: "https://www.youtube.com/embed/ibqbCNo8NcE"
+  video_title: "Moloz Yükleme - #inşaat #kirim #inşaat"
+  paragraphs:
+    - "Uzman Hafriyat olarak bu işi masa başında değil, sahada öğrendik. Babadan oğula gelen tecrübeyle Ankara’da hafriyat, temel kazısı, altyapı ve kepçe kiralama hizmetleri sunuyoruz."
+    - "Güçlü makine parkurumuz ve deneyimli operatör kadromuz ile işleri zamanında, temiz ve güvenli şekilde teslim etmeye önem veriyoruz."
+  
+  # Özellikler Listesi (Feature Items)
+  features:
+    - title: "20+ Yıllık Tecrübe"
+      description: "Babadan oğula gelen tecrübeyle güvenilir hizmet sunuyoruz."
+    - title: "Dar Alan Uzmanı"
+      description: "1CX ve mini kepçelerimiz ile girilmesi zor alanlarda çalışıyoruz."
+    - title: "Zamanında Teslim"
+      description: "İşi uzatan değil, çözüm üreten ekip anlayışıyla çalışıyoruz."
+    - title: "Operatörlü Jcb Kiralama"
+      description: "Ankara genelinde günlük ve proje bazlı kepçe desteği sağlıyoruz."
+      
+  # Alt Butonlar
+  buttons:
+    - text: "Teklif Al"
+      url: "tel:+905325622419"
+      icon: "icon-phone-call"
+      target_blank: true
+      is_outline: false
+    - text: "Hizmetlerimizi Keşfedin"
+      url: "#services"
+      icon: "icon-arrow-up-right"
+      target_blank: false
+      is_outline: true
+
 services_title: Ankara Profesyonel Hafriyat Çözümleri
 services_subtitle: Ankara genelinde temel kazısından altyapı çalışmalarına,
   güvenli bina yıkımından kırım işlerine kadar tüm projelerinizde profesyonel

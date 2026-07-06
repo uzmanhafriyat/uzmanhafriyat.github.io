@@ -4,12 +4,14 @@ title = 'Uzman Hafriyat'
 defaultContentLanguage = 'tr'
 enableRobotsTXT = true
 
+[minify]
+minifyOutput = true
+
 canonifyURLs = true
 uglyURLs = false
 
-[languages]
 [languages.tr]
-languageName = 'Türkçe'
+label = 'Türkçe'
 contentDir = 'content'
 weight = 1
 

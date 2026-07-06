@@ -1,15 +1,58 @@
+{{ with .Params.about_section }}
+{{ if .enable }}
 <section class="about-us" id="about-us-section">
     <div class="container">
-        <div class="grid">
+        <div class="grid items-center">
+            <div class="px-3">
+                <div class="section-heading section-tagline">
+                    <h2 class="section-title">{{ .title }}</h2>
+                    <span class="right"></span>
+                </div>
+
+                <h3 class="section-title">
+                    {{ .subtitle }}
+                </h3>
+
+                <div class="content">
+                    {{ range .paragraphs }}
+                    <p>{{ . | markdownify }}</p>
+                    {{ end }}
+                </div>
+
+                <a href="{{ .button_url | relURL }}" class="btn-primary outline rounded-full width-auto">
+                    <span class="mr-2">{{ .button_text }}</span>
+                    <i class="icon-arrow-up-right"></i>
+                </a>
+            </div>
             <div class="about-us-image">
-                <div class="inner scroll-reveal-bottom">
+                <div class="inner">
                     <div class="image-box visible">
-                        {{ if .Params.about_image }}
-                            <img src="{{ .Params.about_image | relURL }}" class="" loading="lazy" alt="{{ .Params.about_title }}"
-                            width="600" height="400">
-                        {{ end }}
+                        <div class="image-wrapper img-1">
+                            <img src="{{ .image | relURL }}" loading="lazy" alt="{{ .title }}" width="600" height="300">
+                        </div>
                     </div>
-                    {{ if .Params.about_video }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
+
+
+{{ with .Params.why_section }}
+{{ if .enable }}
+<section class="about-us" id="why-section">
+    <div class="container">
+        <div class="grid items-center">
+
+            <div class="about-us-image">
+                <div class="inner">
+                    <div class="image-box visible">
+                        <div class="image-wrapper img-1">
+                            <img src="{{ .image | relURL }}" loading="lazy" alt="{{ .title }}" width="600" height="400">
+                        </div>
+                    </div>
                     <div class="about-three__img-video wow zoomIn animated">
                         <a class="video-popup" data-target="videoModal" aria-label="Video Aç">
                             <div class="about-three__img-video-icon">
@@ -21,32 +64,59 @@
                         <dialog id="videoModal" class="modal video-modal">
                             <article>
                                 <button aria-label="Close" class="close" data-close></button>
-                                {{ .Params.about_video.code | safeHTML }}
+                                <iframe width="361" height="641" src="{{ .video_url | safeURL }}" title="{{ .video_title }}" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </article>
                         </dialog>
                     </div>
-                    {{ end }}
                 </div>
             </div>
-            <div class="px-3">
+
+            <div class="px-3 right-content">
+
                 <div class="section-heading section-tagline">
-                    <h2 class="section-title"> {{ .Params.about_title }} </h2>
+                    <h2 class="section-title">{{ .title }}</h2>
                     <span class="right"></span>
                 </div>
+
                 <h3 class="section-title">
-                    {{ .Params.about_subtitle }}
+                    {{ .subtitle }}
                 </h3>
 
-                <div class="content">
-                    {{ .Params.about_content | markdownify }}
+                <div class="content short-content">
+                    {{ range .paragraphs }}
+                    <p>{{ . | markdownify }}</p>
+                    {{ end }}
                 </div>
 
-                {{ if .Params.hero_buttons_block.button_show }}
-                <a href="{{ .Params.hero_buttons_block.button_link }}" class="btn-primary outline rounded-full width-auto">
-                    {{ .Params.hero_buttons_block.button_text }}
-                </a>
-                {{ end }}
+                <div class="about-features">
+                    {{ range .features }}
+                    <div class="feature-item">
+                        <div class="icon">
+                            <i class="icon-check"></i>
+                        </div>
+                        <div class="text">
+                            <h4>{{ .title }}</h4>
+                            <p>{{ .description }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+
+                <div class="about-buttons">
+                    {{ range .buttons }}
+                    <a href="{{ .url }}" {{ if .target_blank }}target="_blank"{{ end }} class="btn-primary {{ if .is_outline }}outline{{ end }} rounded-full width-auto">
+                        <span class="mr-2">{{ .text }}</span>
+                        <i class="{{ .icon }}"></i>
+                    </a>
+                    {{ end }}
+                </div>
+
             </div>
+
         </div>
     </div>
 </section>
+{{ end }}
+{{ end }}
