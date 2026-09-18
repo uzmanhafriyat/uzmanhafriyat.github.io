@@ -1,26 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Locale | default " tr" }}" data-theme="light">
+<html lang="tr" data-theme="light">
 
 <head>
     {{ partial "components/head.html" . }}
 
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Ana Sayfa",
-        "item": "{{ .Site.BaseURL }}"
-        }
-        {{- block "breadcrumb_items" . }}{{ end -}}
-    ]
-    }
-    </script>
-
-    {{ block "extra_schema" . }}{{ end }}
+    {{ partial "seo/schema.html" . }}
 </head>
 
 <body class="{{ if .IsHome }}home-page{{ else }}sub-page{{ end }}">
@@ -29,6 +13,8 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZS7XL9N"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <a href="#main-content" class="skip-to-content">Ana içeriğe geç</a>
 
     {{ partial "components/header.html" . }}
 
@@ -39,3 +25,4 @@
     {{ $js := resources.Match "js/*.js" | resources.Concat "js/main.js" | fingerprint }}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 </body>
+</html>

@@ -1,0 +1,6 @@
+<article class="journal-card">
+    {{ partial "blog/meta.html" . }}
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <p>{{ .Params.summary | default (.Summary | plainify | truncate 180) }}</p>
+    <a class="journal-link" href="{{ .RelPermalink }}" aria-label="{{ .Title }} yazısını okuyun">Yazıyı okuyun <i class="icon-arrow-up-right" aria-hidden="true"></i></a>
+</article>

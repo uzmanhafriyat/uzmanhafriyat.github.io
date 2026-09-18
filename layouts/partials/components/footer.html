@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="tab-item">
-                    <a href="#services-section">
+                    <a href="{{ if .IsHome }}#services-section{{ else }}{{ "hizmetler/" | relURL }}{{ end }}">
                         <i class="icon-layers"></i>
                         <span class="item-text">HİZMETLERİMİZ</span>
                     </a>
@@ -36,56 +36,56 @@
 
                         {{ with hugo.Data.contact.social.facebook }}
                         <li>
-                            <a href="{{ . }}" target="_blank">
-                                <i class="icon-facebook"></i>
+                            <a href="{{ . }}" target="_blank" aria-label="Facebook sayfamızı ziyaret edin">
+                                <i class="icon-facebook" aria-hidden="true"></i>
                             </a>
                         </li>
                         {{ end }}
 
                         {{ with hugo.Data.contact.social.instagram }}
                         <li>
-                            <a href="{{ . }}" target="_blank">
-                                <i class="icon-instagram"></i>
+                            <a href="{{ . }}" target="_blank" aria-label="Instagram sayfamızı ziyaret edin">
+                                <i class="icon-instagram" aria-hidden="true"></i>
                             </a>
                         </li>
                         {{ end }}
 
                         {{ with hugo.Data.contact.social.youtube }}
                         <li>
-                            <a href="{{ . }}" target="_blank">
-                                <i class="icon-youtube"></i>
+                            <a href="{{ . }}" target="_blank" aria-label="YouTube kanalımızı ziyaret edin">
+                                <i class="icon-youtube" aria-hidden="true"></i>
                             </a>
                         </li>
                         {{ end }}
 
                         {{ with hugo.Data.contact.social.linkedin }}
                         <li>
-                            <a href="{{ . }}" target="_blank">
-                                <i class="icon-linkedin"></i>
+                            <a href="{{ . }}" target="_blank" aria-label="LinkedIn profilimizi ziyaret edin">
+                                <i class="icon-linkedin" aria-hidden="true"></i>
                             </a>
                         </li>
                         {{ end }}
 
                         {{ with hugo.Data.contact.social.x_twitter }}
                         <li>
-                            <a href="{{ . }}" target="_blank">
-                                <i class="icon-twitter"></i>
+                            <a href="{{ . }}" target="_blank" aria-label="Twitter/X profilimizi ziyaret edin">
+                                <i class="icon-twitter" aria-hidden="true"></i>
                             </a>
                         </li>
                         {{ end }}
 
                         {{ with hugo.Data.contact.whatsapp }}
                         <li>
-                            <a href="https://wa.me/{{ .link }}" target="_blank">
-                                <i class="icon-whatsapp1"></i>
+                            <a href="https://wa.me/{{ .link }}" target="_blank" aria-label="WhatsApp'tan iletişime geçin">
+                                <i class="icon-whatsapp1" aria-hidden="true"></i>
                             </a>
                         </li>
                         {{ end }}
 
                         {{ range hugo.Data.contact.phones }}
                         <li>
-                            <a href="tel:{{ .number }}">
-                                <i class="icon-phone-call"></i>
+                            <a href="tel:{{ .number }}" aria-label="Bizi arayın: {{ .number }}">
+                                <i class="icon-phone-call" aria-hidden="true"></i>
                             </a>
                         </li>
                         {{ end }}
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h6 class="footer-title">Hizmetlerimiz</h6>
+                    <h3 class="footer-title">Hizmetlerimiz</h3>
                     <ul class="footer-links">
                         {{ range hugo.Data.footer.services_column }}
                         <li><a href="{{ .link | relURL }}">{{ .name }}</a></li>
@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h6 class="footer-title">Makine & Çözümler</h6>
+                    <h3 class="footer-title">Makine & Çözümler</h3>
                     <ul class="footer-links">
                         {{ range hugo.Data.footer.machines_column }}
                         <li><a href="{{ .link | relURL }}">{{ .name }}</a></li>
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h6 class="footer-title">Hızlı Erişim</h6>
+                    <h3 class="footer-title">Hızlı Erişim</h3>
                     <ul class="footer-links">
                         {{ range hugo.Data.footer.quick_links_column }}
                         <li><a href="{{ .link | relURL }}">{{ .name }}</a></li>
@@ -132,8 +132,8 @@
             </div>
 
             <hr>
-            <div class="flex justify-center items-center">
-                <p class="mb-0">
+            <div class="flex justify-center items-center my-3">
+                    <p class="m-0">
                     <a href="{{ .Site.BaseURL }}">
                         Uzman Hafriyat
                     </a> &copy; {{ now.Format "2006" }} Tüm hakları saklıdır.

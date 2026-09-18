@@ -1,0 +1,15 @@
+{{- $title := .Params.seo.title | default (printf "%s | %s" .Title .Site.Title) -}}
+{{- $description := .Params.seo.description | default .Description | default .Params.summary -}}
+{{- if not $description }}{{ $description = .Summary | plainify | truncate 160 }}{{ end -}}
+{{- if not $description }}{{ $description = .Site.Params.description }}{{ end -}}
+{{- $url := .Permalink -}}
+{{- if and (eq .Section "blog") (not .IsPage) -}}
+  {{- $pager := .Paginate .RegularPages.ByDate.Reverse 10 -}}
+  {{- if gt $pager.PageNumber 1 -}}
+    {{- $title = printf "%s — Sayfa %d" $title $pager.PageNumber -}}
+    {{- $description = printf "%s Rehber arşivi, sayfa %d." $description $pager.PageNumber -}}
+    {{- $url = $pager.URL | absURL -}}
+  {{- end -}}
+{{- end -}}
+{{- $image := .Params.image | default "assets/images/responsive/about-story-1120.webp" | absURL -}}
+{{- return (dict "title" $title "description" ($description | plainify | htmlUnescape) "url" $url "image" $image) -}}

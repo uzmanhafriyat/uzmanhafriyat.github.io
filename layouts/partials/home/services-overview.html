@@ -38,13 +38,18 @@
 
                 </div>
                 <div class="slider-controls">
-                    <button class="prev-btn">
-                        <i class="icon-chevron-left"></i>
+                    <button class="prev-btn" aria-label="Önceki hizmet">
+                        <i class="icon-chevron-left" aria-hidden="true"></i>
                     </button>
-                    <button class="next-btn">
-                        <i class="icon-chevron-right"></i>
+                    <button class="next-btn" aria-label="Sonraki hizmet">
+                        <i class="icon-chevron-right" aria-hidden="true"></i>
                     </button>
                 </div>
+            </div>
+            <div class="services-action">
+                <a href="{{ "hizmetler/" | relURL }}" class="btn-primary outline rounded-full width-auto">
+                    <span>Tüm Hizmetleri Gör</span><i class="icon-arrow-up-right" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </div>

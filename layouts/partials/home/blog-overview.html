@@ -1,6 +1,7 @@
-<section class="services-section mt-5 py-3" id="blog-section">
+<section class="blog-section" id="blog-section">
     <div class="container">
         <div class="section-heading">
+            <span class="section-kicker">SAHADAN NOTLAR</span>
             <h2 class="section-subtitle text-center">Ankara Hafriyat Blog</h2>
             <div class="content text-center">
                 <div class="col-lg-9 offset-lg-1">
@@ -10,27 +11,30 @@
             </div>
         </div>
 
-        <div class="row services-slider">
-            {{ range first 4 (where site.RegularPages "Section" "blog").ByDate.Reverse }}
-            <div class="service-slide mb-4">
-                <div class="service-card">
+        <div class="blog-grid">
+            {{ range first 6 (where site.RegularPages "Section" "blog").ByDate.Reverse }}
+            <article class="blog-card">
                     <div class="service-content">
+                        <div class="blog-card-meta">
+                            <time class="blog-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                                {{ .Date.Format "02.01.2006" }}
+                            </time>
+                        </div>
                         <h3>{{ .Title }}</h3>
                         {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
-                        <a href="{{ .RelPermalink }}" class="service-link">
+                        <a href="{{ .RelPermalink }}" class="blog-link" aria-label="{{ .Title }} yazısını oku">
                             <span>Yazıyı Oku</span>
-                            <i class="icon-chevron-right"></i>
+                            <i class="icon-chevron-right" aria-hidden="true"></i>
                         </a>
                     </div>
-                </div>
-            </div>
+            </article>
             {{ end }}
         </div>
 
-        <div class="text-center mt-3">
-            <a href="{{ "blog/" | relURL }}" class="service-link">
-                <span>Tüm Blog Yazıları</span>
-                <i class="icon-chevron-right"></i>
+        <div class="blog-action">
+            <a href="{{ "blog/" | relURL }}" class="btn-primary outline rounded-full width-auto">
+                <span class="mr-2">Tüm Blog Yazıları</span>
+                <i class="icon-arrow-up-right" aria-hidden="true"></i>
             </a>
         </div>
     </div>

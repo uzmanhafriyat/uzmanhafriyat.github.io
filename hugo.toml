@@ -36,3 +36,4 @@ instagramPage = 'https://www.instagram.com/uzmanhafriyatankara'
 linkedinPage = 'https://www.linkedin.com/company/uzmanhafriyat'
 twitterPage = 'https://twitter.com/uzmanhafriyat'
 address = 'Ankara, Türkiye'
+serviceAreas = ['Ankara', 'Keçiören', 'Etlik', 'Ovacık', 'İncirli', 'Aşağı Eğlence', 'Ayvalı', 'Esertepe', 'Ufuktepe', 'Bağlum', 'Pursaklar', 'Yenimahalle', 'Altındağ', 'Çankaya', 'Gölbaşı']

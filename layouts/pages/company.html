@@ -1,0 +1,40 @@
+{{ define "content" }}
+<main class="company-page" id="main-content">
+    <section class="company-hero"><div class="container company-hero__grid">
+        <div class="company-hero__copy">
+            <nav class="company-breadcrumb" aria-label="İçerik yolu"><a href="{{ "/" | relURL }}">Ana sayfa</a><span aria-hidden="true">/</span><span>Hakkımızda</span></nav>
+            <p class="company-kicker">BABADAN OĞULA, SAHADAN GELECEĞE</p>
+            <h1>{{ .Title }}</h1>
+            <p class="company-lead">Dürüst iş, sağlam temel.<br>Ankara’nın sahalarında nesillerden gelen birikim, modern makinelerle buluşuyor.</p>
+            <a href="#company-story" class="company-text-link">Hikâyemizi keşfedin <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="company-hero__image">
+            {{ partial "company/image.html" (dict "image" "/assets/images/1cx-ve-4_tonluk_exskavator-calismasi-1.webp" "alt" "Ankara’da çalışan Uzman Hafriyat iş makinesi" "priority" true) }}
+            <figcaption>Her yeni saha, güveninizi taşıyan yeni bir başlangıç.</figcaption>
+        </figure>
+    </div></section>
+    <div class="company-principles"><div class="container"><span>ANKARA GENELİNDE</span><span>OPERATÖRLÜ MAKİNE DESTEĞİ</span><span>PLANLI VE GÜVENLİ ÇALIŞMA</span></div></div>
+    {{ range .Params.sections }}
+    {{ if eq .type "text_block" }}
+    <section class="company-story" id="company-story"><div class="container company-story__grid">
+        <div class="company-section-heading"><p class="company-kicker">KÖKLERİMİZ VE YAKLAŞIMIMIZ</p><h2>{{ .title }}</h2>{{ with .subtitle }}<p>{{ . }}</p>{{ end }}<a href="{{ "hizmetler/" | relURL }}" class="company-text-link">Hizmetlerimizi inceleyin <i class="icon-arrow-up-right" aria-hidden="true"></i></a></div>
+        <div class="company-prose">{{ .content | replaceRE "(?m)^#### " "### " | markdownify }}</div>
+    </div></section>
+    {{ else if eq .type "image_text" }}
+    <section class="company-capability{{ if eq .direction "Sol" }} company-capability--reverse{{ end }}"><div class="container company-capability__grid">
+        <div class="company-capability__copy"><p class="company-kicker">SAHADA UZMAN ÇÖZÜMLER</p><h2>{{ .title }}</h2><p>{{ .text }}</p></div>
+        <figure class="company-capability__image">{{ partial "company/image.html" (dict "image" .image "alt" .title "priority" false) }}</figure>
+    </div></section>
+    {{ else if eq .type "faq_section" }}
+    <section class="company-faq" aria-labelledby="company-faq-title"><div class="container company-faq__grid">
+        <div class="company-section-heading"><p class="company-kicker">AKLINIZDA SORU KALMASIN</p><h2 id="company-faq-title">Sıkça Sorulan Sorular</h2><p>Hizmet bölgemiz, makinelerimiz ve çalışma sürecimiz hakkında.</p><a href="tel:+905325622419" class="company-text-link">Bize danışın <i class="icon-phone-call" aria-hidden="true"></i></a></div>
+        <div class="company-faq__list">{{ range .questions }}<details><summary><span>{{ .question }}</span><span class="company-faq__icon" aria-hidden="true">+</span></summary><p>{{ .answer }}</p></details>{{ end }}</div>
+    </div></section>
+    {{ end }}
+    {{ end }}
+    <section class="company-cta"><div class="container company-cta__inner">
+        <div><p class="company-kicker">İŞİNİZİ BİRLİKTE PLANLAYALIM</p><h2>Sahanız değişir.<br>İşe verdiğimiz özen değişmez.</h2><p>İhtiyacınızı anlatın, uygun makine ve çalışma planını birlikte belirleyelim.</p></div>
+        <a href="tel:+905325622419">0 (532) 562 24 19 <i class="icon-phone-call" aria-hidden="true"></i></a>
+    </div></section>
+</main>
+{{ end }}

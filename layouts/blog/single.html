@@ -1,74 +1,42 @@
-{{ define "breadcrumb_items" }}
-    ,{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "{{ "blog/" | absURL }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ .Title }}",
-      "item": "{{ .Permalink }}"
-    }
-{{ end }}
-
-{{ define "extra_schema" }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ .Title }}",
-  "description": "{{ .Params.seo.description | default .Summary }}",
-  "url": "{{ .Permalink }}",
-  "datePublished": "{{ .Date.Format "2006-01-02" }}",
-  "author": {
-    "@type": "Organization",
-    "name": "Uzman Hafriyat"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Uzman Hafriyat"
-  }
-}
-</script>
-{{ end }}
-
 {{ define "content" }}
-<main class="sub-page">
-    <section class="hero-banner">
-        <div class="parallax-background">
-            <picture>
-                <source media="(max-width: 768px)"
-                    srcset="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp">
-                <source media="(min-width: 769px)"
-                    srcset="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp">
-                <img src="/assets/images/uzman-hafriyat-slider-1-IMG20250707112244.webp" alt="{{ .Title }}"
-                    loading="eager" fetchpriority="high">
-            </picture>
-            <div class="parallax-overlay"></div>
-            <div class="parallax-content">
-                <h1 class="section-subtitle">{{ .Title }}</h1>
+<main class="editorial-page" id="main-content">
+    <article class="journal-article">
+        <div class="journal-hero">
+            <div class="container">
+                <nav class="journal-breadcrumb" aria-label="İçerik yolu"><a href="{{ "/" | relURL }}">Ana sayfa</a><span aria-hidden="true">/</span><a href="{{ "blog/" | relURL }}">Blog</a><span aria-hidden="true">/</span><span>Saha rehberi</span></nav>
+                {{ partial "blog/meta.html" . }}
+                <h1>{{ .Title }}</h1>
+                {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+                <span class="journal-author">Uzman Hafriyat · Saha deneyimi</span>
             </div>
         </div>
-    </section>
-
-    <section class="single-service-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 mx-auto">
-                    <div class="content">
-                        {{ .Content }}
-                    </div>
-                    <p class="mt-4">
-                        <a href="{{ "blog/" | relURL }}" class="service-link">
-                            <span>Tüm Blog Yazılarına Dön</span>
-                            <i class="icon-chevron-right"></i>
-                        </a>
-                    </p>
+        <div class="container journal-reading">
+            <div class="journal-prose">
+                <figure class="journal-cover">
+                    {{ partial "blog/cover.html" . }}
+                    <figcaption>{{ .Params.image_caption | default "Uzman Hafriyat saha çalışmalarından." }}</figcaption>
+                </figure>
+                <div class="journal-content">{{ .Content }}</div>
+                <div class="journal-consult">
+                    <div><span class="journal-label">PROJENİZİ BİRLİKTE PLANLAYALIM</span><h2>Sahanıza uygun çözümü konuşalım.</h2><p>İhtiyacınızı anlatın, doğru makine ve iş planını birlikte belirleyelim.</p></div>
+                    <a href="tel:+905325622419">0 (532) 562 24 19 <i class="icon-phone-call" aria-hidden="true"></i></a>
                 </div>
+                <a class="journal-link journal-return" href="{{ "blog/" | relURL }}">← Tüm blog yazılarına dön</a>
             </div>
+            <aside class="journal-sidebar" aria-label="Rehber ve hizmet bağlantıları">
+                {{ if findRE "<li>" .TableOfContents }}
+                <div><p class="journal-label">BU YAZIDA</p>{{ .TableOfContents | replaceRE "<nav id=\"TableOfContents\">" "<nav id=\"TableOfContents\" aria-label=\"Bu yazıda\">" | safeHTML }}</div>
+                {{ end }}
+                <div class="journal-sidebar-contact"><h2>Bir projeye mi başlıyorsunuz?</h2><p>Saha koşullarınıza uygun hizmetleri keşfedin.</p><a href="{{ "hizmetler/" | relURL }}" class="journal-link">Hizmetlerimiz <i class="icon-arrow-up-right" aria-hidden="true"></i></a></div>
+            </aside>
         </div>
-    </section>
+    </article>
+    {{ $related := first 3 (where (where site.RegularPages "Section" "blog") "RelPermalink" "ne" .RelPermalink).ByDate.Reverse }}
+    {{ with $related }}
+    <section class="journal-related" aria-labelledby="related-title"><div class="container">
+        <div class="journal-list-heading"><h2 id="related-title">Okumaya devam edin</h2><a href="{{ "blog/" | relURL }}" class="journal-link">Tüm rehberler →</a></div>
+        <div class="journal-grid">{{ range . }}{{ partial "blog/card.html" . }}{{ end }}</div>
+    </div></section>
+    {{ end }}
 </main>
 {{ end }}

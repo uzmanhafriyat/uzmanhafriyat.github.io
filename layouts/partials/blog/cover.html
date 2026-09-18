@@ -1,0 +1,8 @@
+{{ if .Params.image }}
+    <img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt | default .Title }}" decoding="async" loading="eager" fetchpriority="high">
+{{ else }}
+    <picture>
+        <source type="image/avif" srcset="{{ "assets/images/responsive/about-story-720.avif" | relURL }} 720w, {{ "assets/images/responsive/about-story-1120.avif" | relURL }} 1120w" sizes="(max-width: 768px) 100vw, 55vw">
+        <img src="{{ "assets/images/responsive/about-story-1120.webp" | relURL }}" srcset="{{ "assets/images/responsive/about-story-720.webp" | relURL }} 720w, {{ "assets/images/responsive/about-story-1120.webp" | relURL }} 1120w" sizes="(max-width: 768px) 100vw, 55vw" width="1120" height="700" alt="Ankara’da çalışan Uzman Hafriyat iş makinesi" decoding="async" loading="eager" fetchpriority="high">
+    </picture>
+{{ end }}

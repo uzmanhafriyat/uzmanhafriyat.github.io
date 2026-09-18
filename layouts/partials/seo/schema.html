@@ -1,0 +1,52 @@
+{{- $meta := partial "seo/meta.html" . -}}
+{{- $businessID := printf "%s#organization" .Site.BaseURL -}}
+{{- $websiteID := printf "%s#website" .Site.BaseURL -}}
+{{- $pageID := printf "%s#webpage" $meta.url -}}
+{{- $areas := slice -}}
+{{- range .Site.Params.serviceAreas }}{{ $areas = $areas | append (dict "@type" "Place" "name" .) }}{{ end -}}
+{{- $business := dict "@type" "GeneralContractor" "@id" $businessID "name" "Uzman Hafriyat" "url" .Site.BaseURL "logo" ("assets/images/uzman-hafriyat-logo.svg" | absURL) "image" ("assets/images/responsive/about-story-1120.webp" | absURL) "telephone" "+905325622419" "email" "iletisim@uzmanhafriyat.com" "address" (dict "@type" "PostalAddress" "addressLocality" "Ankara" "addressCountry" "TR") "areaServed" $areas -}}
+{{- $website := dict "@type" "WebSite" "@id" $websiteID "url" .Site.BaseURL "name" .Site.Title "inLanguage" "tr-TR" "publisher" (dict "@id" $businessID) -}}
+{{- $type := "WebPage" -}}
+{{- if eq .Params.layout "company" }}{{ $type = "AboutPage" }}{{ else if not .IsPage }}{{ $type = "CollectionPage" }}{{ end -}}
+{{- $page := dict "@type" $type "@id" $pageID "url" $meta.url "name" $meta.title "description" $meta.description "inLanguage" "tr-TR" "isPartOf" (dict "@id" $websiteID) "about" (dict "@id" $businessID) "primaryImageOfPage" (dict "@type" "ImageObject" "url" $meta.image) -}}
+{{- $graph := slice $business $website -}}
+{{- if not .IsHome -}}
+  {{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Ana sayfa" "item" .Site.BaseURL) -}}
+  {{- if and .IsPage (in (slice "blog" "hizmetler") .Section) -}}
+    {{- $name := "Blog" }}{{ if eq .Section "hizmetler" }}{{ $name = "Hizmetler" }}{{ end -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" $name "item" (printf "%s/" .Section | absURL)) -}}
+  {{- end -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" $meta.url) -}}
+  {{- $crumbID := printf "%s#breadcrumb" $meta.url -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "@id" $crumbID "itemListElement" $crumbs) -}}
+  {{- $page = merge $page (dict "breadcrumb" (dict "@id" $crumbID)) -}}
+{{- end -}}
+{{- if and .IsPage (eq .Section "blog") -}}
+  {{- $articleID := printf "%s#article" $meta.url -}}
+  {{- $article := dict "@type" "BlogPosting" "@id" $articleID "headline" .Title "description" $meta.description "url" $meta.url "image" (slice $meta.image) "inLanguage" "tr-TR" "author" (dict "@id" $businessID) "publisher" (dict "@id" $businessID) "mainEntityOfPage" (dict "@id" $pageID) -}}
+  {{- if not .Date.IsZero }}{{ $article = merge $article (dict "datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")) }}{{ end -}}
+  {{- if not .Lastmod.IsZero }}{{ $article = merge $article (dict "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")) }}{{ end -}}
+  {{- $graph = $graph | append $article -}}
+  {{- $page = merge $page (dict "mainEntity" (dict "@id" $articleID)) -}}
+{{- else if and .IsPage (or (eq .Section "hizmetler") (and (eq .Section "pages") (ne .Params.layout "company"))) -}}
+  {{- $serviceID := printf "%s#service" $meta.url -}}
+  {{- $graph = $graph | append (dict "@type" "Service" "@id" $serviceID "name" .Title "serviceType" .Title "url" $meta.url "description" $meta.description "image" $meta.image "provider" (dict "@id" $businessID) "areaServed" $areas "mainEntityOfPage" (dict "@id" $pageID)) -}}
+  {{- $page = merge $page (dict "mainEntity" (dict "@id" $serviceID)) -}}
+{{- else if in (slice "blog" "hizmetler") .Section -}}
+  {{- $items := slice -}}
+  {{- $pages := .RegularPages.ByTitle -}}
+  {{- if eq .Section "blog" }}{{ $pages = (.Paginate .RegularPages.ByDate.Reverse 10).Pages }}{{ end -}}
+  {{- range $i, $p := $pages }}{{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "name" $p.Title "url" $p.Permalink) }}{{ end -}}
+  {{- $listID := printf "%s#list" $meta.url -}}
+  {{- $graph = $graph | append (dict "@type" "ItemList" "@id" $listID "itemListElement" $items "numberOfItems" (len $items)) -}}
+  {{- $page = merge $page (dict "mainEntity" (dict "@id" $listID)) -}}
+{{- end -}}
+{{- $questions := slice -}}
+{{- range .Params.sections -}}
+  {{- if eq .type "faq_section" -}}
+    {{- range .questions }}{{ $questions = $questions | append (dict "@type" "Question" "name" .question "acceptedAnswer" (dict "@type" "Answer" "text" .answer)) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $questions }}{{ $graph = $graph | append (dict "@type" "FAQPage" "@id" (printf "%s#faq" $meta.url) "isPartOf" (dict "@id" $pageID) "mainEntity" $questions) }}{{ end -}}
+{{- $graph = $graph | append $page -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>

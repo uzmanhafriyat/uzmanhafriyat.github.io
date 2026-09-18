@@ -1,0 +1,1 @@
+Bu proje benim front end ile kodladığım statik web sayfası projesi. Hugo ile tasarımı değiştirmeden hızlı bir şekilde sayfalar / blog ve içerikler oluşturup hugo build yapıyorum çıktı klasörü olan public içindeki dosyaları github hosting de static web sayfası olarak yayınlıyorum. Kesinlikle front-end veya hugo yapımı bozma dikkat et.

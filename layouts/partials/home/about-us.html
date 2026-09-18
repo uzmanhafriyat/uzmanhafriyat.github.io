@@ -1,6 +1,6 @@
 {{ with .Params.about_section }}
 {{ if .enable }}
-<section class="about-us" id="about-us-section">
+<section class="about-us about-story" id="about-us-section">
     <div class="container">
         <div class="grid items-center">
             <div class="px-3">
@@ -28,7 +28,11 @@
                 <div class="inner">
                     <div class="image-box visible">
                         <div class="image-wrapper img-1">
-                            <img src="{{ .image | relURL }}" loading="lazy" alt="{{ .title }}" width="600" height="300">
+                            <picture>
+                                <source type="image/avif" srcset="{{ "/assets/images/responsive/about-story-720.avif" | relURL }} 720w, {{ "/assets/images/responsive/about-story-1120.avif" | relURL }} 1120w" sizes="(max-width: 768px) 100vw, 45vw">
+                                <source type="image/webp" srcset="{{ "/assets/images/responsive/about-story-720.webp" | relURL }} 720w, {{ "/assets/images/responsive/about-story-1120.webp" | relURL }} 1120w" sizes="(max-width: 768px) 100vw, 45vw">
+                                <img src="{{ "/assets/images/responsive/about-story-720.webp" | relURL }}" loading="lazy" decoding="async" alt="Uzman Hafriyat iş makinesi sahada çalışırken" width="1120" height="700">
+                            </picture>
                         </div>
                     </div>
                 </div>
@@ -42,7 +46,7 @@
 
 {{ with .Params.why_section }}
 {{ if .enable }}
-<section class="about-us" id="why-section">
+<section class="about-us about-why" id="why-section">
     <div class="container">
         <div class="grid items-center">
 
@@ -50,11 +54,16 @@
                 <div class="inner">
                     <div class="image-box visible">
                         <div class="image-wrapper img-1">
-                            <img src="{{ .image | relURL }}" loading="lazy" alt="{{ .title }}" width="600" height="400">
+                            <picture>
+                                <source type="image/avif" srcset="{{ "/assets/images/responsive/about-why-720.avif" | relURL }} 720w, {{ "/assets/images/responsive/about-why-960.avif" | relURL }} 960w" sizes="(max-width: 768px) 100vw, 42vw">
+                                <source type="image/webp" srcset="{{ "/assets/images/responsive/about-why-720.webp" | relURL }} 720w, {{ "/assets/images/responsive/about-why-960.webp" | relURL }} 960w" sizes="(max-width: 768px) 100vw, 42vw">
+                                <img src="{{ "/assets/images/responsive/about-why-720.webp" | relURL }}" loading="lazy" decoding="async" alt="Uzman Hafriyat ekibinin saha çalışması" width="960" height="1200">
+                            </picture>
                         </div>
                     </div>
                     <div class="about-three__img-video wow zoomIn animated">
-                        <a class="video-popup" data-target="videoModal" aria-label="Video Aç">
+                        <a href="#videoModal" class="video-popup" data-target="videoModal" aria-label="Çalışma videosunu izle"
+                            role="button" aria-haspopup="dialog">
                             <div class="about-three__img-video-icon">
                                 <i class="icon-play"></i>
                                 <i class="ripple"></i>
@@ -106,7 +115,7 @@
 
                 <div class="about-buttons">
                     {{ range .buttons }}
-                    <a href="{{ .url }}" {{ if .target_blank }}target="_blank"{{ end }} class="btn-primary {{ if .is_outline }}outline{{ end }} rounded-full width-auto">
+                    <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url }}{{ end }}" {{ if .target_blank }}target="_blank" rel="noopener"{{ end }} class="btn-primary {{ if .is_outline }}outline{{ end }} rounded-full width-auto">
                         <span class="mr-2">{{ .text }}</span>
                         <i class="{{ .icon }}"></i>
                     </a>

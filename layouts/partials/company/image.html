@@ -1,0 +1,18 @@
+{{ $image := .image }}
+{{ $name := "" }}
+{{ $widths := slice 720 1120 }}
+{{ if eq $image "/assets/images/1cx-ve-4_tonluk_exskavator-calismasi-1.webp" }}{{ $name = "about-story" }}{{ end }}
+{{ if in $image "hakkimizda_gorsel_kirim" }}{{ $name = "company-demolition" }}{{ $widths = slice 640 960 1280 }}{{ end }}
+{{ if $name }}
+{{ $avif := slice }}{{ $webp := slice }}
+{{ range $widths }}
+{{ $avif = $avif | append (printf "%s %dw" (printf "assets/images/responsive/%s-%d.avif" $name . | relURL) .) }}
+{{ $webp = $webp | append (printf "%s %dw" (printf "assets/images/responsive/%s-%d.webp" $name . | relURL) .) }}
+{{ end }}
+<picture>
+    <source type="image/avif" srcset="{{ delimit $avif ", " }}" sizes="(max-width: 768px) 100vw, 50vw">
+    <img src="{{ printf "assets/images/responsive/%s-%d.webp" $name (index $widths 0) | relURL }}" srcset="{{ delimit $webp ", " }}" sizes="(max-width: 768px) 100vw, 50vw" width="1120" height="700" alt="{{ .alt }}" decoding="async" {{ if .priority }}loading="eager" fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
+</picture>
+{{ else }}
+<img src="{{ $image | relURL }}" alt="{{ .alt }}" loading="lazy" decoding="async">
+{{ end }}

@@ -39,7 +39,7 @@ about_section:
   subtitle: "Ankara Hafriyat ve Altyapı Hizmetleri: Uzman Hafriyat Güvencesiyle"
   image: "/assets/images/1cx-ve-4_tonluk_exskavator-calismasi-1.webp"
   button_text: "Hikayemizi ve Detayları Okuyun"
-  button_url: "./uzman-hafriyat-kimdir.html"
+  button_url: "/uzman-hafriyat-kimdir/"
   paragraphs:
     - "**Uzman Hafriyat** olarak, bu mesleği sadece bir iş değil; babalarımızdan devraldığımız bir **aile mirası** ve **onur vesilesi** olarak görüyoruz. Toprağın dilini ve sahanın zorluklarını nesillerdir süregelen bu tecrübeyle biliyor, babalarımızdan aldığımız **“dürüst iş, sağlam temel”** ilkesini modern teknolojiyle birleştiriyoruz. Her projeyi kendi yatırımımız gibi sahiplenirken, yarım asra yaklaşan bu birikimi güveninize sunuyoruz."
     - "Babalarımızdan devraldığımız bu kadim tecrübeyi, bugün sektörün en güçlü **makine parkuru** ve **uzman operatör kadromuzla** geleceğe taşıyoruz. Özellikle dar alanlarda ve şehir içi şantiyelerde fark yaratan **1CX ve 4 tonluk kompakt ekskavatörlerimizle**, rakiplerimizin giremediği en hassas noktalarda büyük işler başarıyoruz. Manevra kabiliyeti yüksek bu özel ekipmanlarımızla, çevreye ve komşu yapılara zarar vermeden projelerinizi hızlandırıyoruz."
@@ -76,7 +76,7 @@ why_section:
       target_blank: true
       is_outline: false
     - text: "Hizmetlerimizi Keşfedin"
-      url: "#services"
+      url: "#services-section"
       icon: "icon-arrow-up-right"
       target_blank: false
       is_outline: true
