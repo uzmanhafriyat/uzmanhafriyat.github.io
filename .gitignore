@@ -1,0 +1,17 @@
+# macOS Sistem Dosyaları
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Hugo Çıktıları ve Önbellek
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Geliştirme / Ortam Dosyaları (Varsa)
+.env
+node_modules/
